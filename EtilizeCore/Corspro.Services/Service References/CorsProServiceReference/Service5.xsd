@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Administrator" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="CloudLastUpdBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CloudLastUpdDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeleteInd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailSent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManagerUserID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ManagerUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDAOppMgmt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDto" nillable="true" type="tns:UserDto" />
+  <xs:complexType name="ClientLoginDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRMData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientLoginId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientLoginPwd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CorsProSyncInd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastSDAVer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastSDAVerWithDBUpdates" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManageOppysInCRM" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NextCRMOppID" type="xs:int" />
+      <xs:element minOccurs="0" name="OpportunityMgmt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SyncServerLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SyncServerLogin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SyncServerPwd" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientLoginDto" nillable="true" type="tns:ClientLoginDto" />
+  <xs:complexType name="OpportunityDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RetrieveOpportunityDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CRMXrefDefinition" nillable="true">
+            <xs:complexType>
+              <xs:annotation>
+                <xs:appinfo>
+                  <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="LoginInfo" nillable="true" type="tns:ClientLoginDto" />
+          <xs:element minOccurs="0" name="OpportunityTable" nillable="true">
+            <xs:complexType>
+              <xs:annotation>
+                <xs:appinfo>
+                  <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Quotes" nillable="true" type="tns:ArrayOfQuoteDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpportunityDto" nillable="true" type="tns:OpportunityDto" />
+  <xs:complexType name="RetrieveOpportunityDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRMOppID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal10" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal6" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal7" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal8" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal9" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="CloudLastUpdBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CloudLastUpdById" type="xs:int" />
+      <xs:element minOccurs="0" name="CloudLastUpdDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeleteInd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumofQuotes" type="xs:int" />
+      <xs:element minOccurs="0" name="OppCloseDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OppID" type="xs:int" />
+      <xs:element minOccurs="0" name="OppName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OppOwner" type="xs:int" />
+      <xs:element minOccurs="0" name="OppOwnerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OppProbability" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OppStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OppStatusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuoteIDMainSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuotedAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuotedCost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuotedMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SDALastUpdBy" type="xs:int" />
+      <xs:element minOccurs="0" name="SDALastUpdDT" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetrieveOpportunityDto" nillable="true" type="tns:RetrieveOpportunityDto" />
+  <xs:complexType name="ArrayOfQuoteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuoteDto" nillable="true" type="tns:QuoteDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuoteDto" nillable="true" type="tns:ArrayOfQuoteDto" />
+  <xs:complexType name="QuoteDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RetrieveQuoteDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CRMXrefDefinition" nillable="true">
+            <xs:complexType>
+              <xs:annotation>
+                <xs:appinfo>
+                  <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="LoginInfo" nillable="true" type="tns:ClientLoginDto" />
+          <xs:element minOccurs="0" name="QuoteTable" nillable="true">
+            <xs:complexType>
+              <xs:annotation>
+                <xs:appinfo>
+                  <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QuoteDto" nillable="true" type="tns:QuoteDto" />
+  <xs:complexType name="RetrieveQuoteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRMOppID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedText5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal10" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal6" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal7" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal8" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientDefinedTotal9" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="CloudLastUpdBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CloudLastUpdById" type="xs:int" />
+      <xs:element minOccurs="0" name="CloudLastUpdDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateBy" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeleteInd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilePlatformFileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastFileSavedLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OppID" type="xs:int" />
+      <xs:element minOccurs="0" name="QuoteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuoteIDMainSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuoteMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuoteSiteDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuotedAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuotedCost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Rollup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDALastUpdBy" type="xs:int" />
+      <xs:element minOccurs="0" name="SDALastUpdDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDAUpdatedByName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetrieveQuoteDto" nillable="true" type="tns:RetrieveQuoteDto" />
+  <xs:complexType name="InterfaceXRefDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRMXrefUpdDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="InterfaceField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InterfaceFieldType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InterfaceTable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDASMField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDASMFieldType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDASMTable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Txn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDARangeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InterfaceXRefDto" nillable="true" type="tns:InterfaceXRefDto" />
+  <xs:complexType name="ArrayOfInterfaceXRefDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterfaceXRefDto" nillable="true" type="tns:InterfaceXRefDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInterfaceXRefDto" nillable="true" type="tns:ArrayOfInterfaceXRefDto" />
+  <xs:complexType name="ClientDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRMData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CRMSystem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CRMXrefUpdDT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientLoginID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientLoginPwd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManageOppysInCRM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextCRMOppID" type="xs:int" />
+      <xs:element minOccurs="0" name="SDAOppMgmt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendCRMOppValueUpdates" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientDto" nillable="true" type="tns:ClientDto" />
+  <xs:complexType name="ArrayOfClientUpdateDBDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientUpdateDBDto" nillable="true" type="tns:ClientUpdateDBDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientUpdateDBDto" nillable="true" type="tns:ArrayOfClientUpdateDBDto" />
+  <xs:complexType name="ClientUpdateDBDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AWSFileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AWSFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AWSFlePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BetaAWSFileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BetaAWSFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BetaAwsFilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BetaDBFileUpdDT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="DBDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DBFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DBFileType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DBFileUpdDT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DBUploadedDT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeleteInd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="UploaderClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="UploaderUserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UploaderUserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientUpdateDBDto" nillable="true" type="tns:ClientUpdateDBDto" />
+  <xs:complexType name="ArrayOfConfigurationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConfigurationDto" nillable="true" type="tns:ConfigurationDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConfigurationDto" nillable="true" type="tns:ArrayOfConfigurationDto" />
+  <xs:complexType name="ConfigurationDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfigurationDto" nillable="true" type="tns:ConfigurationDto" />
+</xs:schema>

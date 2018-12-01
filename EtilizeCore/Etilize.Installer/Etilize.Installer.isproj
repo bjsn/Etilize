@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\Corspro.Services\Corspro.Services.csproj">
+			<Name>Corspro.Services</Name>
+			<Project>{FF3718D4-4633-46EC-9188-8D1BB9C2032D}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\EtilizeUI\Etilize.csproj">
+			<Name>Etilize</Name>
+			<Project>{7BA0C944-2C94-4560-803E-4CD2A293197C}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Etilize.Data\Etilize.Data.csproj">
+			<Name>Etilize.Data</Name>
+			<Project>{2F7D143F-6357-4E62-97F8-025E4338615C}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\EtilizeDocument\Etilize.ExcelManager.csproj">
+			<Name>Etilize.ExcelManager</Name>
+			<Project>{C6D35458-C6ED-4BCE-8D35-51F28F8456AF}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Etilize.Integration\Etilize.Integration.csproj">
+			<Name>Etilize.Integration</Name>
+			<Project>{024036A2-1620-461E-84FF-A94529B73E1E}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Models\Etilize.Models.csproj">
+			<Name>Etilize.Models</Name>
+			<Project>{5D626D6E-1843-4A5E-8336-D1FD4989F1CE}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ServiceConsumer\Etilize.Services.csproj">
+			<Name>Etilize.Services</Name>
+			<Project>{770DA8B6-A634-4478-9DB2-EA632A849022}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\..\DocumentManager\DocumentManager\Etlize.DocumentManager.csproj">
+			<Name>Etlize.DocumentManager</Name>
+			<Project>{5B4917F9-E40B-4140-A619-9C245EEA8A5D}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

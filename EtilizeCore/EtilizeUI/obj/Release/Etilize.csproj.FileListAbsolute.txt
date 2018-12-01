@@ -1,0 +1,72 @@
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeUI.exe.config
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeUI.exe
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeUI.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Microsoft.Web.XmlTransform.dll
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.Properties.Resources.resources
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.cache
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.exe
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Etilize.Integration.dll
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\ServiceConsumer.dll
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Models.dll
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Etilize.Data.dll
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Etilize.Integration.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\ServiceConsumer.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Models.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\Etilize.Data.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\EtilizeUI.exe.config
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\EtilizeUI.exe
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\EtilizeUI.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Microsoft.Web.XmlTransform.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\ServiceConsumer.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\EtilizeDocument.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\DocumentManager_Test.exe
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\ServiceConsumer.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\EtilizeDocument.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\DocumentManager_Test.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.Properties.Resources.resources
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.exe
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Spire.Doc.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Spire.Pdf.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Spire.License.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Spire.Doc.xml
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeUI\bin\Release\Spire.License.xml
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe.config
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Services.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.DocumentManager.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Services.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.DocumentManager.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.xml
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.Properties.Resources.resources
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.exe
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Excelmanager.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Excelmanager.pdb

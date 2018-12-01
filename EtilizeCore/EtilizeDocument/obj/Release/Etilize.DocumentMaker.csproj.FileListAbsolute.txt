@@ -1,0 +1,6 @@
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Release\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Release\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\Etilize.DocumentMaker.csprojAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\Etilize.DocumentMaker.csproj.CoreCompileInputs.cache
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\EtilizeDocument.pdb

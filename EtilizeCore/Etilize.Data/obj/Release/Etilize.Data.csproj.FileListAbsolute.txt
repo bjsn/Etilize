@@ -1,0 +1,15 @@
+C:\Byron\Projects\test\Etilize\Etilize.Data\bin\Release\Etilize.Data.dll
+C:\Byron\Projects\test\Etilize\Etilize.Data\bin\Release\Etilize.Data.pdb
+C:\Byron\Projects\test\Etilize\Etilize.Data\bin\Release\Models.dll
+C:\Byron\Projects\test\Etilize\Etilize.Data\bin\Release\Models.pdb
+C:\Byron\Projects\test\Etilize\Etilize.Data\obj\Release\Etilize.Data.dll
+C:\Byron\Projects\test\Etilize\Etilize.Data\obj\Release\Etilize.Data.pdb
+C:\Byron\Projects\test\Etilize\Etilize.Data\obj\Release\Etilize.Data.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\Release\Etilize.Data.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\Release\Etilize.Data.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\Release\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\Release\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\Release\Etilize.Data.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\Release\Etilize.Data.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\Release\Etilize.Data.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\Release\Etilize.Data.csproj.ResolveComReference.cache

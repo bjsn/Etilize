@@ -1,0 +1,8 @@
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeUI.exe.config
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeUI.exe
+C:\Byron\Projects\test\Etilize\EtilizeUI\bin\Release\EtilizeUI.pdb
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.Form1.resources
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.Properties.Resources.resources
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.csproj.GenerateResource.Cache
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.exe
+C:\Byron\Projects\test\Etilize\EtilizeUI\obj\Release\EtilizeUI.pdb

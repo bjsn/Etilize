@@ -1,0 +1,7 @@
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\x86\Debug\Etilize.Data.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\x86\Debug\Etilize.Data.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\x86\Debug\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\bin\x86\Debug\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\x86\Debug\Etilize.Data.csproj.ResolveComReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\x86\Debug\Etilize.Data.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\x86\Debug\Etilize.Data.pdb

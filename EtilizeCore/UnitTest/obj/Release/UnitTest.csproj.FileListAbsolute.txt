@@ -1,0 +1,50 @@
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\UnitTest.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\UnitTest.pdb
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Models.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Models.pdb
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Release\UnitTest.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Release\UnitTest.dll
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Release\UnitTest.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\UnitTest.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\UnitTest.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\EtilizeDocument.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\EtilizeDocument.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\UnitTest.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\UnitTest.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\EtilizeDocument.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\ExcelDataReader.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\EtilizeDocument.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\bin\Release\ExcelDataReader.xml
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.pdb

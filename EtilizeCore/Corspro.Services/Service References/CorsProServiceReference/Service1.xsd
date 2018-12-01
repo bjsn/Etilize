@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" />
+  <xs:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Corspro.Domain" />
+  <xs:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="RunUpdateCRMOpportunities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="opportunitiesToUpdate" nillable="true" type="q1:OpportunityDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunUpdateCRMOpportunitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="RunUpdateCRMOpportunitiesResult" nillable="true" type="q2:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunUpdateCRMQuotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="quotesToUpdate" nillable="true" type="q3:QuoteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunUpdateCRMQuotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="RunUpdateCRMQuotesResult" nillable="true" type="q4:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRMXRefUpdDT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="cloudCRMXrefUpdDT" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRMXRefUpdDTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetCRMXRefUpdDTResult" nillable="true" type="q5:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunUpdateCRMXRef">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="interfaceXRefDto" nillable="true" type="q6:InterfaceXRefDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunUpdateCRMXRefResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="RunUpdateCRMXRefResult" nillable="true" type="q7:ArrayOfInterfaceXRefDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByLoginIDAndPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByLoginIDAndPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetUserByLoginIDAndPasswordResult" nillable="true" type="q8:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserStatusByUserIDAndClientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserStatusByUserIDAndClientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetUserStatusByUserIDAndClientIDResult" nillable="true" type="q9:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuoteByClientIDAndQuoteID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element minOccurs="0" name="quoteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuoteByClientIDAndQuoteIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetQuoteByClientIDAndQuoteIDResult" nillable="true" type="q10:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuoteByClientIdUserIdAndQuoteId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="quoteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuoteByClientIdUserIdAndQuoteIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetQuoteByClientIdUserIdAndQuoteIdResult" nillable="true" type="q11:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpportunityByClientIDAndSearchType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="searchType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpportunityByClientIDAndSearchTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetOpportunityByClientIDAndSearchTypeResult" nillable="true" type="q12:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpportunities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+        <xs:element minOccurs="0" name="oppId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opportunityName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="opportunityStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpportunitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="GetOpportunitiesResult" nillable="true" type="q13:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCLientIdByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCLientIdByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCLientIdByNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetClientByIdResult" nillable="true" type="q14:ClientDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientNameByIdAndUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientNameByIdAndUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientNameByIdAndUserIdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientUpdateDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="userType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientUpdateDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetClientUpdateDBResult" nillable="true" type="q15:ArrayOfClientUpdateDBDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigurationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="configurationListName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigurationListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetConfigurationListResult" nillable="true" type="q16:ArrayOfConfigurationDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasPermissionToUpload">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasPermissionToUploadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasPermissionToUploadResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientUpdateDB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AWSid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AWSFilePath" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AWSFileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DBFileUpdDT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DBUploadedDt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BetaVersion" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UploaderClientID" type="xs:int" />
+        <xs:element minOccurs="0" name="UploaderUserID" type="xs:int" />
+        <xs:element minOccurs="0" name="UploaderUserName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientUpdateDBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="UpdateClientUpdateDBResult" nillable="true" type="q17:ClientUpdateDBDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserRegistrationDT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserRegistrationDTResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserLastCheckDT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" type="xs:int" />
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserLastCheckDTResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastCloudDBFileUpdDT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="dbName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastCloudDBFileUpdDTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetLastCloudDBFileUpdDTResult" nillable="true" type="q18:ClientUpdateDBDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInterfaceByIdAndClientId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInterfaceByIdAndClientIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetInterfaceByIdAndClientIdResult" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpportunityByQuoteId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="quoteId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpportunityByQuoteIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetOpportunityByQuoteIdResult" nillable="true" type="q20:OpportunityDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastRetrievedKeys">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastRetrievedKeysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLastRetrievedKeysResult" nillable="true" type="q21:ArrayOfArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="quoteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="documentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filePlatformId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sharedSavedLocation" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="SaveDocumentInformationResult" nillable="true" type="q22:Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

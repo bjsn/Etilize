@@ -1,0 +1,6 @@
+C:\Byron\Projects\test\Etilize\ServiceConsumer\bin\Release\ServiceConsumer.dll
+C:\Byron\Projects\test\Etilize\ServiceConsumer\bin\Release\ServiceConsumer.pdb
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Release\ServiceConsumer.csprojAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Release\ServiceConsumer.csproj.CoreCompileInputs.cache
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Release\ServiceConsumer.dll
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Release\ServiceConsumer.pdb
