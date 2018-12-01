@@ -1,0 +1,7 @@
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Release\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Release\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Release\Models.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Release\Models.pdb
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\Etilize.DocumentManager.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Release\EtilizeDocument.pdb

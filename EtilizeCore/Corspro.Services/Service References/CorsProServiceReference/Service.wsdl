@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd5" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" />
+      <xsd:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Corspro.Domain" />
+      <xsd:import schemaLocation="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_RunUpdateCRMOpportunities_InputMessage">
+    <wsdl:part name="parameters" element="tns:RunUpdateCRMOpportunities" />
+  </wsdl:message>
+  <wsdl:message name="IService_RunUpdateCRMOpportunities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RunUpdateCRMOpportunitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RunUpdateCRMQuotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RunUpdateCRMQuotes" />
+  </wsdl:message>
+  <wsdl:message name="IService_RunUpdateCRMQuotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RunUpdateCRMQuotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCRMXRefUpdDT_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRMXRefUpdDT" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCRMXRefUpdDT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRMXRefUpdDTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RunUpdateCRMXRef_InputMessage">
+    <wsdl:part name="parameters" element="tns:RunUpdateCRMXRef" />
+  </wsdl:message>
+  <wsdl:message name="IService_RunUpdateCRMXRef_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RunUpdateCRMXRefResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserByLoginIDAndPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByLoginIDAndPassword" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserByLoginIDAndPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByLoginIDAndPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserStatusByUserIDAndClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStatusByUserIDAndClientID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserStatusByUserIDAndClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStatusByUserIDAndClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuoteByClientIDAndQuoteID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuoteByClientIDAndQuoteID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuoteByClientIDAndQuoteID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuoteByClientIDAndQuoteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuoteByClientIdUserIdAndQuoteId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuoteByClientIdUserIdAndQuoteId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuoteByClientIdUserIdAndQuoteId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuoteByClientIdUserIdAndQuoteIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunityByClientIDAndSearchType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunityByClientIDAndSearchType" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunityByClientIDAndSearchType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunityByClientIDAndSearchTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunities" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCLientIdByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCLientIdByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCLientIdByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCLientIdByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientNameByIdAndUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientNameByIdAndUserId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientNameByIdAndUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientNameByIdAndUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientUpdateDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientUpdateDB" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientUpdateDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientUpdateDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetConfigurationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigurationList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetConfigurationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigurationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_HasPermissionToUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasPermissionToUpload" />
+  </wsdl:message>
+  <wsdl:message name="IService_HasPermissionToUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasPermissionToUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateClientUpdateDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientUpdateDB" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateClientUpdateDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientUpdateDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUserRegistrationDT_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserRegistrationDT" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUserRegistrationDT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserRegistrationDTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUserLastCheckDT_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserLastCheckDT" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUserLastCheckDT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserLastCheckDTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLastCloudDBFileUpdDT_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastCloudDBFileUpdDT" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLastCloudDBFileUpdDT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastCloudDBFileUpdDTResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInterfaceByIdAndClientId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInterfaceByIdAndClientId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetInterfaceByIdAndClientId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInterfaceByIdAndClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunityByQuoteId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunityByQuoteId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunityByQuoteId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunityByQuoteIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLastRetrievedKeys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastRetrievedKeys" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLastRetrievedKeys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastRetrievedKeysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SaveDocumentInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDocumentInformation" />
+  </wsdl:message>
+  <wsdl:message name="IService_SaveDocumentInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDocumentInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="RunUpdateCRMOpportunities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RunUpdateCRMOpportunities" message="tns:IService_RunUpdateCRMOpportunities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RunUpdateCRMOpportunitiesResponse" message="tns:IService_RunUpdateCRMOpportunities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RunUpdateCRMQuotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RunUpdateCRMQuotes" message="tns:IService_RunUpdateCRMQuotes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RunUpdateCRMQuotesResponse" message="tns:IService_RunUpdateCRMQuotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRMXRefUpdDT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCRMXRefUpdDT" message="tns:IService_GetCRMXRefUpdDT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCRMXRefUpdDTResponse" message="tns:IService_GetCRMXRefUpdDT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RunUpdateCRMXRef">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RunUpdateCRMXRef" message="tns:IService_RunUpdateCRMXRef_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RunUpdateCRMXRefResponse" message="tns:IService_RunUpdateCRMXRef_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLoginIDAndPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserByLoginIDAndPassword" message="tns:IService_GetUserByLoginIDAndPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserByLoginIDAndPasswordResponse" message="tns:IService_GetUserByLoginIDAndPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatusByUserIDAndClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserStatusByUserIDAndClientID" message="tns:IService_GetUserStatusByUserIDAndClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserStatusByUserIDAndClientIDResponse" message="tns:IService_GetUserStatusByUserIDAndClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteByClientIDAndQuoteID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetQuoteByClientIDAndQuoteID" message="tns:IService_GetQuoteByClientIDAndQuoteID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetQuoteByClientIDAndQuoteIDResponse" message="tns:IService_GetQuoteByClientIDAndQuoteID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteByClientIdUserIdAndQuoteId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetQuoteByClientIdUserIdAndQuoteId" message="tns:IService_GetQuoteByClientIdUserIdAndQuoteId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetQuoteByClientIdUserIdAndQuoteIdResponse" message="tns:IService_GetQuoteByClientIdUserIdAndQuoteId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpportunityByClientIDAndSearchType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetOpportunityByClientIDAndSearchType" message="tns:IService_GetOpportunityByClientIDAndSearchType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetOpportunityByClientIDAndSearchTypeResponse" message="tns:IService_GetOpportunityByClientIDAndSearchType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpportunities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetOpportunities" message="tns:IService_GetOpportunities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetOpportunitiesResponse" message="tns:IService_GetOpportunities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCLientIdByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCLientIdByName" message="tns:IService_GetCLientIdByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCLientIdByNameResponse" message="tns:IService_GetCLientIdByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClientById" message="tns:IService_GetClientById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientByIdResponse" message="tns:IService_GetClientById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientNameByIdAndUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClientNameByIdAndUserId" message="tns:IService_GetClientNameByIdAndUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientNameByIdAndUserIdResponse" message="tns:IService_GetClientNameByIdAndUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientUpdateDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClientUpdateDB" message="tns:IService_GetClientUpdateDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientUpdateDBResponse" message="tns:IService_GetClientUpdateDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigurationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetConfigurationList" message="tns:IService_GetConfigurationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetConfigurationListResponse" message="tns:IService_GetConfigurationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasPermissionToUpload">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/HasPermissionToUpload" message="tns:IService_HasPermissionToUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/HasPermissionToUploadResponse" message="tns:IService_HasPermissionToUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientUpdateDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateClientUpdateDB" message="tns:IService_UpdateClientUpdateDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateClientUpdateDBResponse" message="tns:IService_UpdateClientUpdateDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRegistrationDT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUserRegistrationDT" message="tns:IService_UpdateUserRegistrationDT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateUserRegistrationDTResponse" message="tns:IService_UpdateUserRegistrationDT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserLastCheckDT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUserLastCheckDT" message="tns:IService_UpdateUserLastCheckDT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateUserLastCheckDTResponse" message="tns:IService_UpdateUserLastCheckDT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCloudDBFileUpdDT">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLastCloudDBFileUpdDT" message="tns:IService_GetLastCloudDBFileUpdDT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLastCloudDBFileUpdDTResponse" message="tns:IService_GetLastCloudDBFileUpdDT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceByIdAndClientId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetInterfaceByIdAndClientId" message="tns:IService_GetInterfaceByIdAndClientId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetInterfaceByIdAndClientIdResponse" message="tns:IService_GetInterfaceByIdAndClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpportunityByQuoteId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetOpportunityByQuoteId" message="tns:IService_GetOpportunityByQuoteId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse" message="tns:IService_GetOpportunityByQuoteId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastRetrievedKeys">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLastRetrievedKeys" message="tns:IService_GetLastRetrievedKeys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLastRetrievedKeysResponse" message="tns:IService_GetLastRetrievedKeys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocumentInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SaveDocumentInformation" message="tns:IService_SaveDocumentInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SaveDocumentInformationResponse" message="tns:IService_SaveDocumentInformation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RunUpdateCRMOpportunities">
+      <soap12:operation soapAction="http://tempuri.org/IService/RunUpdateCRMOpportunities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunUpdateCRMQuotes">
+      <soap12:operation soapAction="http://tempuri.org/IService/RunUpdateCRMQuotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRMXRefUpdDT">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetCRMXRefUpdDT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunUpdateCRMXRef">
+      <soap12:operation soapAction="http://tempuri.org/IService/RunUpdateCRMXRef" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByLoginIDAndPassword">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserByLoginIDAndPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatusByUserIDAndClientID">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserStatusByUserIDAndClientID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteByClientIDAndQuoteID">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetQuoteByClientIDAndQuoteID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteByClientIdUserIdAndQuoteId">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetQuoteByClientIdUserIdAndQuoteId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpportunityByClientIDAndSearchType">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetOpportunityByClientIDAndSearchType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpportunities">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetOpportunities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCLientIdByName">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetCLientIdByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientById">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetClientById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientNameByIdAndUserId">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetClientNameByIdAndUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientUpdateDB">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetClientUpdateDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigurationList">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetConfigurationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasPermissionToUpload">
+      <soap12:operation soapAction="http://tempuri.org/IService/HasPermissionToUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientUpdateDB">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateClientUpdateDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserRegistrationDT">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateUserRegistrationDT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserLastCheckDT">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateUserLastCheckDT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastCloudDBFileUpdDT">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetLastCloudDBFileUpdDT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceByIdAndClientId">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetInterfaceByIdAndClientId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpportunityByQuoteId">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetOpportunityByQuoteId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastRetrievedKeys">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetLastRetrievedKeys" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocumentInformation">
+      <soap12:operation soapAction="http://tempuri.org/IService/SaveDocumentInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="WSHttpBinding_IService" binding="tns:WSHttpBinding_IService">
+      <soap12:address location="https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://apps.corspro.com:44301/Corspro.WCFUpdateService/Service.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

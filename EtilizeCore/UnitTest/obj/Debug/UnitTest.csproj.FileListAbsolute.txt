@@ -1,0 +1,34 @@
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Debug\UnitTest.csprojAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\UnitTest.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\UnitTest.pdb
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Debug\UnitTest.csproj.CopyComplete
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Debug\UnitTest.dll
+C:\Byron\Projects\test\Etilize\UnitTest\obj\Debug\UnitTest.pdb
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Models.dll
+C:\Byron\Projects\test\Etilize\UnitTest\bin\Debug\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\UnitTest.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\UnitTest.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\EtilizeDocument.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\EtilizeDocument.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\obj\Debug\UnitTest.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\UnitTest\obj\Debug\UnitTest.pdb

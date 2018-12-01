@@ -1,0 +1,12 @@
+C:\Byron\Projects\test\Etilize\Models\bin\Release\Models.dll
+C:\Byron\Projects\test\Etilize\Models\bin\Release\Models.pdb
+C:\Byron\Projects\test\Etilize\Models\obj\Release\Models.dll
+C:\Byron\Projects\test\Etilize\Models\obj\Release\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\bin\Release\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\bin\Release\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\obj\Release\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\obj\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\bin\Release\Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\bin\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Models.pdb

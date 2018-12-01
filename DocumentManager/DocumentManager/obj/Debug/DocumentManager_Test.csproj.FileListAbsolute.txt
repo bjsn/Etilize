@@ -1,0 +1,9 @@
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\bin\Debug\DocumentManager_Test.exe.config
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\bin\Debug\DocumentManager_Test.exe
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\bin\Debug\DocumentManager_Test.pdb
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\bin\Debug\Xceed.Words.NET.dll
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\obj\Debug\DocumentManager_Test.csprojAssemblyReference.cache
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\obj\Debug\DocumentManager_Test.csproj.CoreCompileInputs.cache
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\obj\Debug\DocumentManager_Test.csproj.CopyComplete
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\obj\Debug\DocumentManager_Test.exe
+C:\Users\Byeron\source\repos\DocumentManager_Test\DocumentManager_Test\obj\Debug\DocumentManager_Test.pdb

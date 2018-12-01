@@ -1,0 +1,11 @@
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\Etilize.exe.config
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\Etilize.exe
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\Etilize.pdb
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\Newtonsoft.Json.dll
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\Newtonsoft.Json.xml
+C:\Byron\Projects\test\Etilize\Etilize\obj\Debug\Etilize.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\Etilize\obj\Debug\Etilize.exe
+C:\Byron\Projects\test\Etilize\Etilize\obj\Debug\Etilize.pdb
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\EtilizeUI.exe
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\EtilizeUI.pdb
+C:\Byron\Projects\test\Etilize\Etilize\bin\Debug\Microsoft.Web.XmlTransform.dll

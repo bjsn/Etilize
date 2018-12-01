@@ -1,0 +1,25 @@
+C:\Byron\Projects\test\Etilize\ServiceConsumer\bin\Debug\ServiceConsumer.dll
+C:\Byron\Projects\test\Etilize\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Debug\Etilize.Services.csprojAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Debug\Etilize.Services.csproj.ResolveComReference.cache
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Debug\Etilize.Services.csproj.CoreCompileInputs.cache
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Debug\ServiceConsumer.dll
+C:\Byron\Projects\test\Etilize\ServiceConsumer\obj\Debug\ServiceConsumer.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\ServiceConsumer.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\Models.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\Models.pdb
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\Etilize.Services.csprojResolveAssemblyReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\Etilize.Services.csproj.ResolveComReference.cache
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\ServiceConsumer.dll
+C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\ServiceConsumer.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\ServiceConsumer.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\Corspro.Services.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\Corspro.Services.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\bin\Debug\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\Etilize.Services.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\Etilize.Services.csproj.ResolveComReference.cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\ServiceConsumer.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\ServiceConsumer\obj\Debug\ServiceConsumer.pdb

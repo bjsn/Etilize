@@ -1,0 +1,9 @@
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Debug\Etilize.DocumentManager.csprojAssemblyReference.cache
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Debug\Etilize.DocumentManager.csproj.CoreCompileInputs.cache
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Debug\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Debug\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Debug\EtilizeDocument.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Debug\EtilizeDocument.pdb
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Debug\Models.dll
+C:\Byron\Projects\test\Etilize\EtilizeDocument\bin\Debug\Models.pdb
+C:\Byron\Projects\test\Etilize\EtilizeDocument\obj\Debug\Etilize.DocumentManager.csproj.CopyComplete
