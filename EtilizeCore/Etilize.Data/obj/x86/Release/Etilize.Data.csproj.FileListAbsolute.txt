@@ -8,9 +8,17 @@ C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.D
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.pdb
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Data.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Data.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Models.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Models.pdb
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.csproj.ResolveComReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Data.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Data.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Models.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\bin\x86\Release\Etilize.Models.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.csproj.ResolveComReference.cache
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Data\obj\x86\Release\Etilize.Data.pdb

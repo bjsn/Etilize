@@ -1,0 +1,9 @@
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Debug\Etilize.DocumentManager.dll.config
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Debug\Etilize.DocumentManager.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Debug\Etilize.DocumentManager.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Debug\Etilize.Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Debug\Etilize.Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Debug\Etlize.DocumentManager.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Debug\Etlize.DocumentManager.csproj.ResolveComReference.cache
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Debug\Etilize.DocumentManager.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Debug\Etilize.DocumentManager.pdb

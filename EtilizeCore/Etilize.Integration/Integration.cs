@@ -2,7 +2,7 @@
 using Etilize.Data;
 using Etilize.Services;
 using EtilizeDocument;
-using Models;
+using Etilize.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -84,20 +84,26 @@ namespace Etilize.Integration
                 string userName = Environment.UserName;
                 string str = ConfigurationManager.AppSettings["CSVSetupFile"].ToString(CultureInfo.InvariantCulture).Replace("[USERNAME]", userName);
                 List<ExcelPartRequest> excelDataByColumnNameDataReader = this.ExcelManager.GetExcelDataByColumnNameDataReader(this.DIRECTORY_ROOT + str);
-                VendorDL rdl = new VendorDL(this.EtilizeConnectionPath) {
+
+                VendorDL rdl = new VendorDL(this.EtilizeConnectionPath)
+                {
                     DbPwd = this.DbPassword
                 };
-                List<Vendor> distinctVendor = this.GetDistinctVendor(excelDataByColumnNameDataReader);
+
                 excelDataByColumnNameDataReader = this.FormatVendorIDInRequest(excelDataByColumnNameDataReader, rdl.GetAllVendors());
-                excelDataByColumnNameDataReader = this.GetVendorIdByProductPartList(excelDataByColumnNameDataReader, distinctVendor);
                 excelDataByColumnNameDataReader = this.GetProposalDocumentsSaved(excelDataByColumnNameDataReader);
-                rdl.Save(distinctVendor);
+
                 this.UpdateStep(50);
                 List<ProposalContentByPart> proposalContentByParts = new List<ProposalContentByPart>();
                 if (excelDataByColumnNameDataReader.Count > 0)
                 {
                     proposalContentByParts = this.ProcessExcelPartsRequestRTF(excelDataByColumnNameDataReader);
                 }
+
+                //saving the founded vendors
+                List<Vendor> distinctVendor = this.GetDistinctVendor(proposalContentByParts);
+                rdl.Save(distinctVendor);
+
                 str2 = str2.Replace("[USERNAME]", userName);
                 string savePath = this.DIRECTORY_ROOT + str2;
                 this.UpdateProgressSubTitle("Assembling proposal content (please wait)…");
@@ -252,7 +258,7 @@ namespace Etilize.Integration
                         UpdateProgressText("Downloading information for " + excelPart.PartNumber);
                         int total = (int)((counter * 100) / excelPartsRequest.Count);
                         UpdateProgress(total);
-                        Task<string> task = EtilizeServices.ExecuteCall("&catalog=na&method=getProduct&partNumber=" + excelPart.PartNumber + "&mfgId=" + excelPart.VendorId + "&descriptionTypes=0,3&skuType=all&manufacturer=default&featureBulletsMax=10&displayTemplate=0&resourceTypes=all");
+                        Task<string> task = EtilizeServices.ExecuteCall("&catalog=na&method=getProduct&partNumber=" + excelPart.PartNumber + "&mfgName=" + excelPart.VendorName + "&descriptionTypes=0,3&skuType=all&manufacturer=default&featureBulletsMax=10&displayTemplate=0&resourceTypes=all");
                         listTest.Add(excelPart.PartNumber, task);
                     }
                 }
@@ -263,6 +269,18 @@ namespace Etilize.Integration
             return listTest;
         }
 
+
+        private Dictionary<string, Task<string>> ExecuteServerSingleCall(ExcelPartRequest excelPartRequest, ProposalContentByPart proposalContentByPartsSaved)
+        {
+            Dictionary<string, Task<string>> listTest = new Dictionary<string, Task<string>>();
+            if (Utilitary.CheckForInternetConnection())
+            {
+                Task<string> task = EtilizeServices.ExecuteCall("&catalog=na&method=getProduct&partNumber=" + excelPartRequest.PartNumber + "&mfgName=" + excelPartRequest.VendorName + "&descriptionTypes=0,3&skuType=all&manufacturer=default&featureBulletsMax=10&displayTemplate=0&resourceTypes=all");
+                listTest.Add(excelPartRequest.PartNumber, task);
+                Task.WaitAll(listTest.Values.ToArray());
+            }
+            return listTest;
+        }
 
         private string FormatListInRTF(IEnumerable<XElement> rootElement, string subElementName, string format = "", string specificElementName = "")
         {
@@ -401,19 +419,21 @@ namespace Etilize.Integration
                             {
                                 continue;
                             }
-                            string xml = this.EtilizeServices.ExecuteSearch(request.PartNumber);
+                            string xml = "";
+                                
+                            xml = this.EtilizeServices.ExecuteSearch(request.PartNumber);
                             if (!xml.Contains("Error"))
                             {
                                 xml = this.RemoveXmlDefinition(xml);
                                 foreach (KeyValuePair<int, string> pair in this.GetVendorListFromXML(xml))
                                 {
-                                    if (pair.Value.ToUpper().Contains(request.VendorName.ToUpper()))
-                                    {
+                                    //if (pair.Value.ToUpper().Contains(request.VendorName.ToUpper()))
+                                    //{
                                         request.VendorId = pair.Key;
                                         vendor.VendorID = pair.Key;
                                         vendorId = request.VendorId;
                                         break;
-                                    }
+                                    //}
                                 }
                                 if (vendorId != 0)
                                 {
@@ -446,30 +466,54 @@ namespace Etilize.Integration
         {
             XElement element = this.LoadXMLFromString(xml, null);
             List<KeyValuePair<int, string>> list = new List<KeyValuePair<int, string>>();
-            if (int.Parse(element.Attribute("count").Value) > 0)
-            {
+          
                 try
                 {
-                    foreach (XElement element2 in (from t in element.Elements()
-                                                   where t.Name.LocalName.Contains("products")
-                                                   select t).Elements<XElement>())
+                    IEnumerable<XElement> VendorList = from t in element.Elements()
+                                                      where t.Name.LocalName.Contains("manufacturer")
+                                                      select t;
+
+                    foreach (XElement vendor in VendorList) 
                     {
-                        if (element2.Name.LocalName.ToString().Contains("productSummary"))
-                        {
-                            XElement element3 = (from t in element2.Elements()
-                                                 where t.Name.LocalName.Contains("manufacturer")
-                                                 select t).FirstOrDefault<XElement>();
-                            list.Add(new KeyValuePair<int, string>(int.Parse(element3.Attribute("id").Value), element3.Attribute("name").Value));
-                        }
+                        list.Add(new KeyValuePair<int, string>(int.Parse(vendor.Attribute("id").Value), vendor.Attribute("name").Value));
                     }
                 }
                 catch (Exception exception1)
                 {
                     throw new Exception(exception1.Message);
                 }
-            }
             return list;
         }
+
+
+        private int GetVendorIdFromXML(string xml) 
+        {
+            List<KeyValuePair<int, string>> VendorsList = GetVendorListFromXML(xml);
+            if (VendorsList.Count > 0) 
+            {
+                return VendorsList.First().Key;
+            }
+            return 0;
+        }
+
+
+        private List<Vendor> GetDistinctVendor(List<ProposalContentByPart> proposalContent)
+        {
+            List<Vendor> list = new List<Vendor>();
+            foreach (ProposalContentByPart proposal in proposalContent)
+            {
+                Vendor item = new Vendor
+                {
+                    VendorID = proposal.VendorID,
+                    VendorName = proposal.VendorName
+                };
+                list.Add(item);
+            }
+            return (from x in list
+                    group x by x.VendorName into x
+                    select x.First<Vendor>()).ToList<Vendor>();
+        }
+
 
         /// <summary>
         /// </summary>
@@ -495,7 +539,7 @@ namespace Etilize.Integration
         {
             try
             {
-                List<string[]> lastEtilizeRetrievedKeys = new CorsProServices(Utilitary.GetSetupDLProperty(this.setupDL.GetSetupList(), "SDACloudURL")).GetLastEtilizeRetrievedKeys();
+                List<string[]> lastEtilizeRetrievedKeys = new CorsProServices(Utilitary.GetSetupDLProperty(this.setupDL.GetSetupList(), "SDACloudUpdatesURL")).GetLastEtilizeRetrievedKeys();
                 if (lastEtilizeRetrievedKeys.Count > 1)
                 {
                     string appId = Utilitary.DecryptCorsProServerMessage(lastEtilizeRetrievedKeys[0][0], lastEtilizeRetrievedKeys[0][1]);
@@ -629,7 +673,6 @@ namespace Etilize.Integration
 
         public List<ProposalContentByPart> ProcessExcelPartsRequestRTF(List<ExcelPartRequest> excelPartsRequest)
         {
-            //int.Parse(ConfigurationManager.AppSettings["ContentReloadDays"].ToString(CultureInfo.InvariantCulture));
             string downloadPath = this.DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
             ProposalContentByPartDL tdl = new ProposalContentByPartDL(this.EtilizeConnectionPath) {
                 DbPwd = this.DbPassword
@@ -670,17 +713,30 @@ namespace Etilize.Integration
                             excelPart.Found = true;
                             item.VendorID = excelPart.VendorId;
                             item.Optional = (excelPart.Optional == null) ? item.Optional : excelPart.Optional;
+                            //if the ID is equal to 0, update the ID from the Etilize XML
+                            if (item.VendorID == 0) 
+                            {
+                                int currentVendorId = downloadedList.Where(x => x.VendorName.Equals(excelPart.VendorName)).Select(x => x.VendorID).FirstOrDefault();
+                                if (currentVendorId == 0)
+                                {
+                                    Dictionary<string, Task<string>> singleSource = this.ExecuteServerSingleCall(excelPart, item);
+                                    Func<KeyValuePair<string, Task<string>>, bool> func2 = x => x.Key.Equals(excelPart.PartNumber);
+                                    string etilizeResult = (from x in singleSource.Where<KeyValuePair<string, Task<string>>>(func2) select x.Value.Result).FirstOrDefault<string>();
+                                    item.VendorID = this.GetVendorIdFromXML(etilizeResult);
+                                }
+                                else 
+                                {
+                                    item.VendorID = currentVendorId;
+                                }
+                            }
                             downloadedList.Add(item);
                         }
                         else
                         {
                             if (Utilitary.CheckForInternetConnection())
                             {
-                                Func<KeyValuePair<string, Task<string>>, bool> func2 = null;
-                                if (func2 == null)
-                                {
-                                    func2 = x => x.Key.Equals(excelPart.PartNumber);
-                                }
+                                
+                                Func<KeyValuePair<string, Task<string>>, bool> func2 = x => x.Key.Equals(excelPart.PartNumber);
                                 string etilizeResult = (from x in source.Where<KeyValuePair<string, Task<string>>>(func2) select x.Value.Result).FirstOrDefault<string>();
                                 ProposalContentByPart proposalContentByPartFromXMLInRTF = this.GetProposalContentByPartFromXMLInRTF(etilizeResult, excelPart);
                                 if (proposalContentByPartFromXMLInRTF == null)
@@ -1039,7 +1095,8 @@ namespace Etilize.Integration
                 ProductPictureURL = recomendedImage,
                 PartNumber = componentPart.PartNumber,
                 VendorName = componentPart.VendorName,
-                VendorID = componentPart.VendorId,  
+                VendorID = this.GetVendorIdFromXML(etilizeResult),
+                //componentPart.VendorId,  
                 ProductName = this.GetMarketingInformationFromXElement(rootElement, "General Information", "Product Name"),
                 FeatureBullets = RTFParser.ConvertXMLIntoBullets(from t in element.Elements()
                     where t.Name.LocalName.Contains("featureBullets")

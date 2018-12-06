@@ -1,6 +1,5 @@
-﻿using Models;
+﻿using Etilize.Models;
 using ExcelDataReader;
-using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic.FileIO;
 using System;
@@ -8,8 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace EtilizeDocument

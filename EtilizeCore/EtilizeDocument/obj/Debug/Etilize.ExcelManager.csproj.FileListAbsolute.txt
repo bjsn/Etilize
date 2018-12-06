@@ -5,12 +5,12 @@ C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDo
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\Etilize.ExcelManager.csprojResolveAssemblyReference.cache
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\EtilizeDocument.dll
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\EtilizeDocument.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\EtilizeDocument.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\EtilizeDocument.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\Etilize.Excelmanager.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\Etilize.Excelmanager.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\Etilize.Models.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\ExcelDataReader.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\Models.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\Etilize.Models.pdb
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Debug\ExcelDataReader.xml
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\Etilize.ExcelManager.csprojResolveAssemblyReference.cache
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\EtilizeDocument.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\EtilizeDocument.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\Etilize.Excelmanager.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Debug\Etilize.Excelmanager.pdb

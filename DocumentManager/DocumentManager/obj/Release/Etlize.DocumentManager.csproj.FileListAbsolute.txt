@@ -1,9 +1,18 @@
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.DocumentManager.dll.config
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.DocumentManager.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.DocumentManager.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Models.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.Models.pdb
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Release\Etlize.DocumentManager.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Release\Etlize.DocumentManager.csproj.ResolveComReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Release\Etilize.DocumentManager.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\DocumentManager\DocumentManager\obj\Release\Etilize.DocumentManager.pdb
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.DocumentManager.dll.config
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.DocumentManager.dll
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.DocumentManager.pdb
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.Models.dll
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\bin\Release\Etilize.Models.pdb
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\obj\Release\Etlize.DocumentManager.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\obj\Release\Etlize.DocumentManager.csproj.ResolveComReference.cache
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\obj\Release\Etilize.DocumentManager.dll
+C:\Byron\CorsPro code\Etilize\DocumentManager\DocumentManager\obj\Release\Etilize.DocumentManager.pdb
