@@ -6,7 +6,13 @@ C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\bi
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\bin\Release\Models.pdb
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\obj\Release\Models.dll
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\Models\obj\Release\Models.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\bin\Release\Models.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\bin\Release\Models.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Models.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\bin\Release\Etilize.Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\bin\Release\Etilize.Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Models\bin\Release\Etilize.Models.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Models\bin\Release\Etilize.Models.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.pdb

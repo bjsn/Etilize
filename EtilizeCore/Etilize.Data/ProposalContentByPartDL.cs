@@ -1,6 +1,6 @@
 ﻿namespace Etilize.Data
 {
-    using Models;
+    using Etilize.Models;
     using System;
     using System.Collections.Generic;
     using System.Data;

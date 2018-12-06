@@ -48,3 +48,21 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\UnitTest.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\UnitTest.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Etilize.Excelmanager.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Etilize.Models.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\ExcelDataReader.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Etilize.Excelmanager.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Etilize.Models.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\bin\Release\ExcelDataReader.xml
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\UnitTest\obj\Release\UnitTest.pdb

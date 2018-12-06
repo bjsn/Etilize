@@ -5,12 +5,21 @@ C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDo
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.ExcelManager.csprojResolveAssemblyReference.cache
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDocument\obj\Release\EtilizeDocument.dll
 C:\Byron\Projects\CorsPro\Code to Repo\Corspro Dev\Etilize\EtilizeCore\EtilizeDocument\obj\Release\EtilizeDocument.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\ExcelDataReader.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Models.dll
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Models.pdb
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\ExcelDataReader.xml
-C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.ExcelManager.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Excelmanager.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Excelmanager.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Models.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\ExcelDataReader.dll
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Models.pdb
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\bin\Release\ExcelDataReader.xml
+C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.ExcelManager.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.Excelmanager.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.Excelmanager.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Excelmanager.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Excelmanager.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Models.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\bin\Release\ExcelDataReader.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\bin\Release\Etilize.Models.pdb
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\bin\Release\ExcelDataReader.xml
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.ExcelManager.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.Excelmanager.dll
+C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeDocument\obj\Release\Etilize.Excelmanager.pdb

@@ -1,6 +1,6 @@
 ﻿namespace Etilize.Data
 {
-    using Models;
+    using Etilize.Models;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -84,6 +84,26 @@
             return vendor;
         }
 
+
+        public Vendor GetVendorsByName(string VendorName)
+        {
+            Vendor vendor;
+            try
+            {
+                base.OpenDbConnection();
+                DataTable dataTable = new DataTable();
+                new OleDbDataAdapter("SELECT VendorID, VendorName FROM VendorID Where VendorName = '" + VendorName + "';", base.DbConnection).Fill(dataTable);
+                base.CloseDbConnection();
+                vendor = this.Convert(dataTable).FirstOrDefault<Vendor>();
+            }
+            catch (Exception exception)
+            {
+                base.CloseDbConnection();
+                throw new Exception(exception.Message);
+            }
+            return vendor;
+        }
+
         public void Save()
         {
             throw new NotImplementedException();
@@ -95,8 +115,8 @@
             {
                 foreach (Vendor vendor in vendors)
                 {
-                    Vendor vendorsById = this.GetVendorsById(vendor.VendorID);
-                    if ((vendorsById == null) && (vendor.VendorID != 0))
+                    Vendor vendorByName = this.GetVendorsByName(vendor.VendorName);
+                    if ((vendorByName == null) && (vendor.VendorID != 0))
                     {
                         base.OpenDbConnection();
                         OleDbCommand command = new OleDbCommand {
