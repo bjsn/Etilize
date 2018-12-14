@@ -485,7 +485,6 @@ namespace Etilize.Integration
             return list;
         }
 
-
         private int GetVendorIdFromXML(string xml) 
         {
             List<KeyValuePair<int, string>> VendorsList = GetVendorListFromXML(xml);
@@ -495,7 +494,6 @@ namespace Etilize.Integration
             }
             return 0;
         }
-
 
         private List<Vendor> GetDistinctVendor(List<ProposalContentByPart> proposalContent)
         {

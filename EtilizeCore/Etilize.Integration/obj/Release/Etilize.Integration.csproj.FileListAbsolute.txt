@@ -58,22 +58,22 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Integration.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Integration.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Data.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.DocumentManager.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Excelmanager.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Models.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Services.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\ExcelDataReader.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Corspro.Services.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.DocumentManager.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Excelmanager.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Models.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Services.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Data.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\ExcelDataReader.xml
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Corspro.Services.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.csprojResolveAssemblyReference.cache
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Integration.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Integration.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Data.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.DocumentManager.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Excelmanager.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Models.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Services.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\ExcelDataReader.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Corspro.Services.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.DocumentManager.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Excelmanager.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Models.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Services.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Data.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\ExcelDataReader.xml
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Corspro.Services.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.pdb

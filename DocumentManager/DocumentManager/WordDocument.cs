@@ -35,10 +35,9 @@ namespace DocumentManager
             //Create an instance for word app
             winword = new Application
             {
-                //Set animation status for word application
-                //ShowAnimation = false,
                 //Set status for word application is to be visible or not.
-                Visible = false
+                Visible = false,
+                
             };
             return winword;
         }
@@ -75,7 +74,7 @@ namespace DocumentManager
             savedPath = path;
 
             object fullPath = path + name;
-            document.SaveAs2(ref @fullPath);
+            document.SaveAs2(ref @fullPath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatXMLDocument);
         }
 
         /// <summary>

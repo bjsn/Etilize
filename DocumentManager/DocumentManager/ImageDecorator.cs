@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
+using System.IO;
 
 namespace DocumentManager
 {
@@ -42,20 +43,38 @@ namespace DocumentManager
         /// <param name="horizontalPossition"></param>
         /// <param name="vericalPossition"></param>
         public void AddImage(Range range, string path, WdWrapType wdWrapTight = WdWrapType.wdWrapInline, WdShapePosition horizontalPossition = WdShapePosition.wdShapeLeft, 
-                            WdShapePosition vericalPossition = WdShapePosition.wdShapeTop, int with = 0, int height = 0)
+                            WdShapePosition vericalPossition = WdShapePosition.wdShapeTop, int with = 0, int height = 0, Application wordApp = null)
         {
-            Object nullobj = System.Reflection.Missing.Value;
-            var image = base.m_baseComponent.document.InlineShapes.AddPicture(path, true, false, nullobj);
-            //image.Width = (with == 0) ? image.Width : with;
-            //image.Height = (height == 0) ? image.Height : height;
-            Shape shape = image.ConvertToShape();
-            //set the image possition
-            shape.WrapFormat.Type = wdWrapTight;
-            shape.Left = (float)horizontalPossition;
-            shape.Top = (float)vericalPossition; 
+            try
+            {
+                Object nullobj = System.Reflection.Missing.Value;
+                var image = wordApp.ActiveDocument.Shapes.AddPicture(path, false, true, 0, 0, with, height, range);
+                image.WrapFormat.Type = wdWrapTight;
+                image.Left = (float)horizontalPossition;
+                image.Top = (float)vericalPossition;
 
-            shape.Width = (with == 0) ? image.Width : with;
-           shape.Height = (height == 0) ? image.Height : height;
+                //var image = base.m_baseComponent.document.InlineShapes.AddPicture(path, true, false, nullobj);
+                //File.AppendAllLines(pathTempFIle, new[] { "base.m_baseComponent.document.InlineShapes.AddPicture(path, true, false, nullobj)" });
+                //image.Width = (with == 0) ? image.Width : with;
+                //image.Height = (height == 0) ? image.Height : height;
+                ////Shape shape = image.ConvertToShape();
+                //File.AppendAllLines(pathTempFIle, new[] { "image.ConvertToShape();" });
+                ////set the image possition
+                //shape.WrapFormat.Type = wdWrapTight;
+                //File.AppendAllLines(pathTempFIle, new[] { "wdWrapTight" });
+                //shape.Left = (float)horizontalPossition;
+                //File.AppendAllLines(pathTempFIle, new[] { "horizontalPossition" });
+                //shape.Top = (float)vericalPossition;
+                //File.AppendAllLines(pathTempFIle, new[] { "vericalPossition" });
+                //shape.Width = (with == 0) ? image.Width : with;
+                //File.AppendAllLines(pathTempFIle, new[] { "with" });
+                //shape.Height = (height == 0) ? image.Height : height;
+                //File.AppendAllLines(pathTempFIle, new[] { "height" });
+            }
+            catch (Exception e) 
+            {
+                throw new Exception(e.Message);
+            }
         }
 
     }

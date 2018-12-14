@@ -70,28 +70,28 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.exe
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe.config
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.exe
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Models.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Services.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Excelmanager.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.DocumentManager.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.dll
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Models.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Services.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Excelmanager.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.DocumentManager.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.pdb
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.xml
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.Properties.Resources.resources
-C:\Byron\CorsPro code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe.config
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Models.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Services.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Excelmanager.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.DocumentManager.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.dll
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Integration.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Models.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Services.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Excelmanager.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.DocumentManager.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.xml
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.Properties.Resources.resources
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.exe
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.pdb

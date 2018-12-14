@@ -23,7 +23,6 @@ namespace DocumentManager
             this.documentConfiguration = documentConfiguration;
         }
 
-
         private bool InsertExternalDocument(string savePath, ProposalContentByPart proposalPart, Microsoft.Office.Interop.Word.Application app, Document document, string fileExtension)
         {
             string str3 = "";
@@ -126,156 +125,163 @@ namespace DocumentManager
         /// <param name="width"></param>
         public void StarEtilizeDocAssebly(List<ProposalContentByPart> proposalContentByParts, string savePath, int height = 0, int width = 0)
         {
-            object range = Missing.Value;
-            WordDocument baseComponent = new WordDocument();
-            Microsoft.Office.Interop.Word.Application winword = baseComponent.NewApp();
-            Document document = baseComponent.New(winword);
-            document.Range(0, 0);
-            ImageDecorator decorator = new ImageDecorator(baseComponent);
-            bool useNormalStyleForList = winword.Options.UseNormalStyleForList;
-            if (!winword.Options.UseNormalStyleForList)
+            try
             {
-                winword.Options.UseNormalStyleForList = true;
-            }
-            object wdStory = WdUnits.wdStory;
-            if (proposalContentByParts.Count > 0)
-            {
-                int num = 0;
-                this.UpdateProgress(0);
-                foreach (ProposalContentByPart part in proposalContentByParts)
+                object range = Missing.Value;
+                WordDocument baseComponent = new WordDocument();
+                Microsoft.Office.Interop.Word.Application winword = baseComponent.NewApp();
+                Document document = baseComponent.New(winword);
+                document.Range(0, 0);
+                ImageDecorator decorator = new ImageDecorator(baseComponent);
+                bool useNormalStyleForList = winword.Options.UseNormalStyleForList;
+                if (!winword.Options.UseNormalStyleForList)
                 {
-                    num++;
-                    int progressPercentage = (num * 100) / proposalContentByParts.Count;
-                    this.UpdateProgress(progressPercentage);
-                    this.UpdateProgressText("Assembling content for " + part.PartNumber);
-
-                    if (part.Document != null)
+                    winword.Options.UseNormalStyleForList = true;
+                }
+                object wdStory = WdUnits.wdStory;
+                if (proposalContentByParts.Count > 0)
+                {
+                    int num = 0;
+                    this.UpdateProgress(0);
+                    foreach (ProposalContentByPart part in proposalContentByParts)
                     {
-                        if (!this.InsertExternalDocument(savePath, part, winword, document, ".doc"))
+                        num++;
+                        int progressPercentage = (num * 100) / proposalContentByParts.Count;
+                        this.UpdateProgress(progressPercentage);
+                        this.UpdateProgressText("Assembling content for " + part.PartNumber);
+
+                        if (part.Document != null)
                         {
-                            this.InsertExternalDocument(savePath, part, winword, document, ".docx");
+                            if (!this.InsertExternalDocument(savePath, part, winword, document, ".doc"))
+                            {
+                                this.InsertExternalDocument(savePath, part, winword, document, ".docx");
+                            }
+                            continue;
                         }
-                        continue;
-                    }
 
-                    if (((!this.documentConfiguration.ExcludeIfNoPic) || !string.IsNullOrEmpty(part.ProductPicturePath)) && ((((part.Document != null) || !this.IsRTFTextInvalid(part.MarketingInfo)) || !this.IsRTFTextInvalid(part.FeatureBullets)) && (this.documentConfiguration.MarketingInfo || this.documentConfiguration.Benefits)))
-                    {
-                        if (!string.IsNullOrEmpty(part.ProductName))
+                        if (((!this.documentConfiguration.ExcludeIfNoPic) || !string.IsNullOrEmpty(part.ProductPicturePath)) && ((((part.Document != null) || !this.IsRTFTextInvalid(part.MarketingInfo)) || !this.IsRTFTextInvalid(part.FeatureBullets)) && (this.documentConfiguration.MarketingInfo || this.documentConfiguration.Benefits)))
                         {
-                            string productName = part.ProductName;
-                            if (!string.IsNullOrEmpty(part.Optional))
+                            if (!string.IsNullOrEmpty(part.ProductName))
                             {
-                                string str3 = part.Optional.ToLower().Equals("y") ? "(Optional)" : "";
-                                productName = productName + " " + str3;
-                            }
-                            var paragraph = document.Paragraphs.Add(ref range);
-                            paragraph.Range.Text = productName;
-                            paragraph.Range.set_Style("Heading 3");
-                            paragraph.Range.InsertParagraphAfter();
-                            if (!string.IsNullOrEmpty(part.ProductPicturePath) && this.documentConfiguration.Picture)
-                            {
-                                decorator.AddImage(paragraph.Range, part.ProductPicturePath, WdWrapType.wdWrapTight, WdShapePosition.wdShapeRight, WdShapePosition.wdShapeTop, 180, 180);
-                            }
-                            paragraph.Range.InsertParagraphAfter();
-                            winword.ActiveWindow.Selection.EndKey(ref wdStory);
-                            if (this.documentConfiguration.Benefits)
-                            {
-                                List<KeyValuePair<string, string>> source = this.SplitRTFInReadableFormat(part.FeatureBullets);
-                                if (source.Count<KeyValuePair<string, string>>() > 0)
+                                string productName = part.ProductName;
+                                if (!string.IsNullOrEmpty(part.Optional))
                                 {
-                                    Paragraph paragraph2 = document.Content.Paragraphs.Add();
-                                    paragraph2.Range.set_Style("Normal");
-                                    paragraph2.Range.ListFormat.ApplyBulletDefault();
-                                    int num3 = 0;
-                                    foreach (KeyValuePair<string, string> pair in source)
+                                    string str3 = part.Optional.ToLower().Equals("y") ? "(Optional)" : "";
+                                    productName = productName + " " + str3;
+                                }
+                                var paragraph = document.Paragraphs.Add(ref range);
+                                paragraph.Range.Text = productName;
+                                paragraph.Range.set_Style("Heading 3");
+                                paragraph.Range.InsertParagraphAfter();
+                                if (!string.IsNullOrEmpty(part.ProductPicturePath) && this.documentConfiguration.Picture)
+                                {
+                                    decorator.AddImage(paragraph.Range, part.ProductPicturePath, WdWrapType.wdWrapTight, WdShapePosition.wdShapeRight, WdShapePosition.wdShapeTop, 180, 180, winword);
+                                }
+                                paragraph.Range.InsertParagraphAfter();
+                                winword.ActiveWindow.Selection.EndKey(ref wdStory);
+
+                                if (this.documentConfiguration.Benefits)
+                                {
+                                    List<KeyValuePair<string, string>> source = this.SplitRTFInReadableFormat(part.FeatureBullets);
+                                    if (source.Count<KeyValuePair<string, string>>() > 0)
                                     {
-                                        if (!string.IsNullOrEmpty(pair.Value))
+                                        Paragraph paragraph2 = document.Content.Paragraphs.Add();
+                                        paragraph2.Range.set_Style("Normal");
+                                        paragraph2.Range.ListFormat.ApplyBulletDefault();
+                                        int num3 = 0;
+                                        foreach (KeyValuePair<string, string> pair in source)
                                         {
-                                            string text = pair.Value;
-                                            if (num3 < (source.Count - 1))
+                                            if (!string.IsNullOrEmpty(pair.Value))
                                             {
-                                                text = text + "\n";
+                                                string text = pair.Value;
+                                                if (num3 < (source.Count - 1))
+                                                {
+                                                    text = text + "\n";
+                                                }
+                                                paragraph2.Range.InsertBefore(text);
                                             }
-                                            paragraph2.Range.InsertBefore(text);
+                                            num3++;
                                         }
-                                        num3++;
+                                        paragraph2.Range.InsertParagraphAfter();
+                                        winword.ActiveWindow.Selection.EndKey(ref wdStory);
                                     }
-                                    paragraph2.Range.InsertParagraphAfter();
                                     winword.ActiveWindow.Selection.EndKey(ref wdStory);
                                 }
-                                winword.ActiveWindow.Selection.EndKey(ref wdStory);
-                            }
-                            if (this.documentConfiguration.MarketingInfo)
-                            {
-                                bool flag2 = false;
-                                foreach (KeyValuePair<string, string> pair2 in this.SplitRTFInReadableFormat(part.MarketingInfo))
+                                if (this.documentConfiguration.MarketingInfo)
                                 {
-                                    string key = pair2.Key;
-                                    if (key != null)
+                                    bool flag2 = false;
+                                    foreach (KeyValuePair<string, string> pair2 in this.SplitRTFInReadableFormat(part.MarketingInfo))
                                     {
-                                        if (key != "p")
+                                        string key = pair2.Key;
+                                        if (key != null)
                                         {
-                                            if (key != "b")
+                                            if (key != "p")
                                             {
+                                                if (key != "b")
+                                                {
+                                                    continue;
+                                                }
+                                                Paragraph paragraph5 = document.Content.Paragraphs.Add();
+                                                paragraph5.Range.ListFormat.ApplyBulletDefault();
+                                                paragraph5.Range.InsertBefore(pair2.Value);
+                                                flag2 = true;
                                                 continue;
                                             }
-                                            Paragraph paragraph5 = document.Content.Paragraphs.Add();
-                                            paragraph5.Range.ListFormat.ApplyBulletDefault();
-                                            paragraph5.Range.InsertBefore(pair2.Value);
-                                            flag2 = true;
-                                            continue;
-                                        }
-                                        if (flag2)
-                                        {
-                                            document.Content.Paragraphs.Add();
-                                        }
-                                        Paragraph range2 = document.Content.Paragraphs.Add();
-                                        range2.Range.Text = pair2.Value + "\n";
-                                        range2.Range.InsertParagraphAfter();
-                                        flag2 = false;
-                                    }
-                                }
-                            }
-                            winword.ActiveWindow.Selection.EndKey(ref wdStory);
-                            if (this.documentConfiguration.TechInfo)
-                            {
-                                List<KeyValuePair<string, string>> source = this.SplitRTFInReadableFormat(part.TechnicalInfo);
-                                if (source.Count<KeyValuePair<string, string>>() > 0)
-                                {
-                                    Paragraph paragraph6 = document.Content.Paragraphs.Add();
-                                    paragraph6.Range.set_Style("Normal");
-                                    paragraph6.Range.Text = "Features of the " + part.ProductName + ":\n";
-                                    Paragraph paragraph7 = document.Content.Paragraphs.Add();
-                                    paragraph7.Range.InsertParagraphBefore();
-                                    paragraph7.Range.set_Style("Normal");
-                                    paragraph7.Range.ListFormat.ApplyBulletDefault();
-                                    int num4 = 0;
-                                    foreach (KeyValuePair<string, string> pair3 in source)
-                                    {
-                                        if (!string.IsNullOrEmpty(pair3.Value))
-                                        {
-                                            string text = pair3.Value;
-                                            if (num4 < (source.Count - 1))
+                                            if (flag2)
                                             {
-                                                text = text + "\n";
+                                                document.Content.Paragraphs.Add();
                                             }
-                                            text = text;
-                                            paragraph7.Range.InsertBefore(text);
+                                            Paragraph range2 = document.Content.Paragraphs.Add();
+                                            range2.Range.Text = pair2.Value + "\n";
+                                            range2.Range.InsertParagraphAfter();
+                                            flag2 = false;
                                         }
-                                        num4++;
                                     }
-                                    paragraph7.Range.InsertParagraphAfter();
-                                    winword.ActiveWindow.Selection.EndKey(ref wdStory);
                                 }
                                 winword.ActiveWindow.Selection.EndKey(ref wdStory);
+                                if (this.documentConfiguration.TechInfo)
+                                {
+                                    List<KeyValuePair<string, string>> source = this.SplitRTFInReadableFormat(part.TechnicalInfo);
+                                    if (source.Count<KeyValuePair<string, string>>() > 0)
+                                    {
+                                        Paragraph paragraph6 = document.Content.Paragraphs.Add();
+                                        paragraph6.Range.set_Style("Normal");
+                                        paragraph6.Range.Text = "Features of the " + part.ProductName + ":\n";
+                                        Paragraph paragraph7 = document.Content.Paragraphs.Add();
+                                        paragraph7.Range.InsertParagraphBefore();
+                                        paragraph7.Range.set_Style("Normal");
+                                        paragraph7.Range.ListFormat.ApplyBulletDefault();
+                                        int num4 = 0;
+                                        foreach (KeyValuePair<string, string> pair3 in source)
+                                        {
+                                            if (!string.IsNullOrEmpty(pair3.Value))
+                                            {
+                                                string text = pair3.Value;
+                                                if (num4 < (source.Count - 1))
+                                                {
+                                                    text = text + "\n";
+                                                }
+                                                paragraph7.Range.InsertBefore(text);
+                                            }
+                                            num4++;
+                                        }
+                                        paragraph7.Range.InsertParagraphAfter();
+                                        winword.ActiveWindow.Selection.EndKey(ref wdStory);
+                                    }
+                                    winword.ActiveWindow.Selection.EndKey(ref wdStory);
+                                }
                             }
                         }
                     }
                 }
+                string fileName = Path.GetFileName(savePath);
+                winword.Options.UseNormalStyleForList = useNormalStyleForList;
+                baseComponent.SaveAndClose(Path.GetFullPath(savePath).Replace(fileName, ""), fileName);
             }
-            string fileName = Path.GetFileName(savePath);
-            winword.Options.UseNormalStyleForList = useNormalStyleForList;
-            baseComponent.SaveAndClose(Path.GetFullPath(savePath).Replace(fileName, ""), fileName);
+            catch (Exception e) 
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public static string SaveToTemporaryFile(string html)
