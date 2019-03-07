@@ -162,23 +162,59 @@
   <wsdl:message name="IService_GetInterfaceByIdAndClientId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetInterfaceByIdAndClientIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GetOpportunityByQuoteId_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetOpportunityByQuoteId" />
-  </wsdl:message>
-  <wsdl:message name="IService_GetOpportunityByQuoteId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetOpportunityByQuoteIdResponse" />
-  </wsdl:message>
   <wsdl:message name="IService_GetLastRetrievedKeys_InputMessage">
     <wsdl:part name="parameters" element="tns:GetLastRetrievedKeys" />
   </wsdl:message>
   <wsdl:message name="IService_GetLastRetrievedKeys_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastRetrievedKeysResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetOpportunityByQuoteId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunityByQuoteId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOpportunityByQuoteId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpportunityByQuoteIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_SaveDocumentInformation_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveDocumentInformation" />
   </wsdl:message>
   <wsdl:message name="IService_SaveDocumentInformation_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveDocumentInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserAppStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAppStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserAppStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAppStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadUserMachineData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadUserMachineData" />
+  </wsdl:message>
+  <wsdl:message name="IService_UploadUserMachineData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadUserMachineDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientImportOptionListByClientId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientImportOptionListByClientId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClientImportOptionListByClientId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientImportOptionListByClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertClientImportOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClientImportOption" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertClientImportOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClientImportOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddErrorLogMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddErrorLogMessage" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddErrorLogMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddErrorLogMessageResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="RunUpdateCRMOpportunities">
@@ -265,17 +301,41 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetInterfaceByIdAndClientId" message="tns:IService_GetInterfaceByIdAndClientId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetInterfaceByIdAndClientIdResponse" message="tns:IService_GetInterfaceByIdAndClientId_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetOpportunityByQuoteId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetOpportunityByQuoteId" message="tns:IService_GetOpportunityByQuoteId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse" message="tns:IService_GetOpportunityByQuoteId_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetLastRetrievedKeys">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLastRetrievedKeys" message="tns:IService_GetLastRetrievedKeys_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLastRetrievedKeysResponse" message="tns:IService_GetLastRetrievedKeys_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetOpportunityByQuoteId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetOpportunityByQuoteId" message="tns:IService_GetOpportunityByQuoteId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse" message="tns:IService_GetOpportunityByQuoteId_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SaveDocumentInformation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/SaveDocumentInformation" message="tns:IService_SaveDocumentInformation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/SaveDocumentInformationResponse" message="tns:IService_SaveDocumentInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAppStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserAppStatus" message="tns:IService_GetUserAppStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserAppStatusResponse" message="tns:IService_GetUserAppStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadUserMachineData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UploadUserMachineData" message="tns:IService_UploadUserMachineData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UploadUserMachineDataResponse" message="tns:IService_UploadUserMachineData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserStatus" message="tns:IService_GetUserStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserStatusResponse" message="tns:IService_GetUserStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientImportOptionListByClientId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClientImportOptionListByClientId" message="tns:IService_GetClientImportOptionListByClientId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientImportOptionListByClientIdResponse" message="tns:IService_GetClientImportOptionListByClientId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertClientImportOption">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertClientImportOption" message="tns:IService_InsertClientImportOption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertClientImportOptionResponse" message="tns:IService_InsertClientImportOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddErrorLogMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddErrorLogMessage" message="tns:IService_AddErrorLogMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddErrorLogMessageResponse" message="tns:IService_AddErrorLogMessage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IService" type="tns:IService">
@@ -470,15 +530,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetOpportunityByQuoteId">
-      <soap12:operation soapAction="http://tempuri.org/IService/GetOpportunityByQuoteId" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetLastRetrievedKeys">
       <soap12:operation soapAction="http://tempuri.org/IService/GetLastRetrievedKeys" style="document" />
       <wsdl:input>
@@ -488,8 +539,71 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetOpportunityByQuoteId">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetOpportunityByQuoteId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SaveDocumentInformation">
       <soap12:operation soapAction="http://tempuri.org/IService/SaveDocumentInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAppStatus">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserAppStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadUserMachineData">
+      <soap12:operation soapAction="http://tempuri.org/IService/UploadUserMachineData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStatus">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientImportOptionListByClientId">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetClientImportOptionListByClientId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertClientImportOption">
+      <soap12:operation soapAction="http://tempuri.org/IService/InsertClientImportOption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddErrorLogMessage">
+      <soap12:operation soapAction="http://tempuri.org/IService/AddErrorLogMessage" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -323,6 +323,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetLastRetrievedKeys">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastRetrievedKeysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLastRetrievedKeysResult" nillable="true" type="q20:ArrayOfArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetOpportunityByQuoteId">
     <xs:complexType>
       <xs:sequence>
@@ -333,19 +345,7 @@
   <xs:element name="GetOpportunityByQuoteIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetOpportunityByQuoteIdResult" nillable="true" type="q20:OpportunityDto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetLastRetrievedKeys">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetLastRetrievedKeysResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLastRetrievedKeysResult" nillable="true" type="q21:ArrayOfArrayOfstring" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetOpportunityByQuoteIdResult" nillable="true" type="q21:OpportunityDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -366,6 +366,110 @@
       <xs:sequence>
         <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Corspro.Domain" minOccurs="0" name="SaveDocumentInformationResult" nillable="true" type="q22:Response" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAppStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAppStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetUserAppStatusResult" nillable="true" type="q23:UserCloudStatusDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadUserMachineData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="WindowsUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MacAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VersionDotNet" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VersionExcel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VersionWord" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VersionSDA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VersionSalesManager" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VersionWindows" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InstallType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyLong" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserTimeZone" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadUserMachineDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadUserMachineDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserStatusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientImportOptionListByClientId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientImportOptionListByClientIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto" minOccurs="0" name="GetClientImportOptionListByClientIdResult" nillable="true" type="q24:ArrayOfClientImportOptionDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertClientImportOption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+        <xs:element minOccurs="0" name="ImportOption" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertClientImportOptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertClientImportOptionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddErrorLogMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddErrorLogMessageResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

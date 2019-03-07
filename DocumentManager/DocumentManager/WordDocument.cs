@@ -74,7 +74,7 @@ namespace DocumentManager
             savedPath = path;
 
             object fullPath = path + name;
-            document.SaveAs2(ref @fullPath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatXMLDocument);
+            document.SaveAs(ref @fullPath, Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatXMLDocument);
         }
 
         /// <summary>

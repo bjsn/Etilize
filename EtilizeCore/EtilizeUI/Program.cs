@@ -21,6 +21,7 @@ namespace EtilizeUI
             {
                 MessageBox.Show("The proposal output process will continue using only already-downloaded or user-added content", "Internet access is not available", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
+
             try
             {
                 using (EtilizeForm form = new EtilizeForm(Utilitary.GetDocumentConfiguration(commandLineArgs)))

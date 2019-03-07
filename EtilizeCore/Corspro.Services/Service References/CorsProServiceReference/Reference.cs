@@ -2106,6 +2106,15 @@ namespace Corspro.Services.CorsProServiceReference {
         private System.DateTime BetaDBFileUpdDTField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BetaUploaderClientIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BetaUploaderUserIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BetaUploaderUserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ClientIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2235,6 +2244,45 @@ namespace Corspro.Services.CorsProServiceReference {
                 if ((this.BetaDBFileUpdDTField.Equals(value) != true)) {
                     this.BetaDBFileUpdDTField = value;
                     this.RaisePropertyChanged("BetaDBFileUpdDT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BetaUploaderClientID {
+            get {
+                return this.BetaUploaderClientIDField;
+            }
+            set {
+                if ((this.BetaUploaderClientIDField.Equals(value) != true)) {
+                    this.BetaUploaderClientIDField = value;
+                    this.RaisePropertyChanged("BetaUploaderClientID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BetaUploaderUserID {
+            get {
+                return this.BetaUploaderUserIDField;
+            }
+            set {
+                if ((this.BetaUploaderUserIDField.Equals(value) != true)) {
+                    this.BetaUploaderUserIDField = value;
+                    this.RaisePropertyChanged("BetaUploaderUserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BetaUploaderUserName {
+            get {
+                return this.BetaUploaderUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BetaUploaderUserNameField, value) != true)) {
+                    this.BetaUploaderUserNameField = value;
+                    this.RaisePropertyChanged("BetaUploaderUserName");
                 }
             }
         }
@@ -2453,6 +2501,224 @@ namespace Corspro.Services.CorsProServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserCloudStatusDto", Namespace="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto")]
+    [System.SerializableAttribute()]
+    public partial class UserCloudStatusDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AppVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ClientIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValidUserNextCheckHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValidUserNextCheckReqDaysField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AppVersion {
+            get {
+                return this.AppVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AppVersionField, value) != true)) {
+                    this.AppVersionField = value;
+                    this.RaisePropertyChanged("AppVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ClientId {
+            get {
+                return this.ClientIdField;
+            }
+            set {
+                if ((this.ClientIdField.Equals(value) != true)) {
+                    this.ClientIdField = value;
+                    this.RaisePropertyChanged("ClientId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserStatus {
+            get {
+                return this.UserStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserStatusField, value) != true)) {
+                    this.UserStatusField = value;
+                    this.RaisePropertyChanged("UserStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ValidUserNextCheckHours {
+            get {
+                return this.ValidUserNextCheckHoursField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValidUserNextCheckHoursField, value) != true)) {
+                    this.ValidUserNextCheckHoursField = value;
+                    this.RaisePropertyChanged("ValidUserNextCheckHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ValidUserNextCheckReqDays {
+            get {
+                return this.ValidUserNextCheckReqDaysField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValidUserNextCheckReqDaysField, value) != true)) {
+                    this.ValidUserNextCheckReqDaysField = value;
+                    this.RaisePropertyChanged("ValidUserNextCheckReqDays");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClientImportOptionDto", Namespace="http://schemas.datacontract.org/2004/07/Corspro.Domain.Dto")]
+    [System.SerializableAttribute()]
+    public partial class ClientImportOptionDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ClientIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImportOptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime UpdateDTField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ClientID {
+            get {
+                return this.ClientIDField;
+            }
+            set {
+                if ((this.ClientIDField.Equals(value) != true)) {
+                    this.ClientIDField = value;
+                    this.RaisePropertyChanged("ClientID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImportOption {
+            get {
+                return this.ImportOptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImportOptionField, value) != true)) {
+                    this.ImportOptionField = value;
+                    this.RaisePropertyChanged("ImportOption");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime UpdateDT {
+            get {
+                return this.UpdateDTField;
+            }
+            set {
+                if ((this.UpdateDTField.Equals(value) != true)) {
+                    this.UpdateDTField = value;
+                    this.RaisePropertyChanged("UpdateDT");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CorsProServiceReference.IService")]
     public interface IService {
@@ -2583,23 +2849,93 @@ namespace Corspro.Services.CorsProServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetInterfaceByIdAndClientId", ReplyAction="http://tempuri.org/IService/GetInterfaceByIdAndClientIdResponse")]
         System.Threading.Tasks.Task<string[]> GetInterfaceByIdAndClientIdAsync(int userId, int clientId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetOpportunityByQuoteId", ReplyAction="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse")]
-        Corspro.Services.CorsProServiceReference.OpportunityDto GetOpportunityByQuoteId(string quoteId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetOpportunityByQuoteId", ReplyAction="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse")]
-        System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.OpportunityDto> GetOpportunityByQuoteIdAsync(string quoteId);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetLastRetrievedKeys", ReplyAction="http://tempuri.org/IService/GetLastRetrievedKeysResponse")]
         string[][] GetLastRetrievedKeys();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetLastRetrievedKeys", ReplyAction="http://tempuri.org/IService/GetLastRetrievedKeysResponse")]
         System.Threading.Tasks.Task<string[][]> GetLastRetrievedKeysAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetOpportunityByQuoteId", ReplyAction="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse")]
+        Corspro.Services.CorsProServiceReference.OpportunityDto GetOpportunityByQuoteId(string quoteId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetOpportunityByQuoteId", ReplyAction="http://tempuri.org/IService/GetOpportunityByQuoteIdResponse")]
+        System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.OpportunityDto> GetOpportunityByQuoteIdAsync(string quoteId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SaveDocumentInformation", ReplyAction="http://tempuri.org/IService/SaveDocumentInformationResponse")]
         Corspro.Services.CorsProServiceReference.Response SaveDocumentInformation(int clientId, int userId, string quoteId, string documentType, string filePlatformId, string sharedSavedLocation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SaveDocumentInformation", ReplyAction="http://tempuri.org/IService/SaveDocumentInformationResponse")]
         System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.Response> SaveDocumentInformationAsync(int clientId, int userId, string quoteId, string documentType, string filePlatformId, string sharedSavedLocation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserAppStatus", ReplyAction="http://tempuri.org/IService/GetUserAppStatusResponse")]
+        Corspro.Services.CorsProServiceReference.UserCloudStatusDto GetUserAppStatus(int clientId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserAppStatus", ReplyAction="http://tempuri.org/IService/GetUserAppStatusResponse")]
+        System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.UserCloudStatusDto> GetUserAppStatusAsync(int clientId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UploadUserMachineData", ReplyAction="http://tempuri.org/IService/UploadUserMachineDataResponse")]
+        string UploadUserMachineData(
+                    int ClientId, 
+                    int UserId, 
+                    string WindowsUserName, 
+                    string MacAddress, 
+                    string VersionDotNet, 
+                    string VersionExcel, 
+                    string VersionWord, 
+                    string VersionSDA, 
+                    string VersionSalesManager, 
+                    string VersionWindows, 
+                    string InstallType, 
+                    string UserFullName, 
+                    string Email, 
+                    string CompanyLong, 
+                    string Title, 
+                    string Phone, 
+                    string UserTimeZone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UploadUserMachineData", ReplyAction="http://tempuri.org/IService/UploadUserMachineDataResponse")]
+        System.Threading.Tasks.Task<string> UploadUserMachineDataAsync(
+                    int ClientId, 
+                    int UserId, 
+                    string WindowsUserName, 
+                    string MacAddress, 
+                    string VersionDotNet, 
+                    string VersionExcel, 
+                    string VersionWord, 
+                    string VersionSDA, 
+                    string VersionSalesManager, 
+                    string VersionWindows, 
+                    string InstallType, 
+                    string UserFullName, 
+                    string Email, 
+                    string CompanyLong, 
+                    string Title, 
+                    string Phone, 
+                    string UserTimeZone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserStatus", ReplyAction="http://tempuri.org/IService/GetUserStatusResponse")]
+        string GetUserStatus(int clientId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserStatus", ReplyAction="http://tempuri.org/IService/GetUserStatusResponse")]
+        System.Threading.Tasks.Task<string> GetUserStatusAsync(int clientId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClientImportOptionListByClientId", ReplyAction="http://tempuri.org/IService/GetClientImportOptionListByClientIdResponse")]
+        Corspro.Services.CorsProServiceReference.ClientImportOptionDto[] GetClientImportOptionListByClientId(int clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClientImportOptionListByClientId", ReplyAction="http://tempuri.org/IService/GetClientImportOptionListByClientIdResponse")]
+        System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.ClientImportOptionDto[]> GetClientImportOptionListByClientIdAsync(int clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertClientImportOption", ReplyAction="http://tempuri.org/IService/InsertClientImportOptionResponse")]
+        int InsertClientImportOption(int ClientId, string ImportOption, string Status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertClientImportOption", ReplyAction="http://tempuri.org/IService/InsertClientImportOptionResponse")]
+        System.Threading.Tasks.Task<int> InsertClientImportOptionAsync(int ClientId, string ImportOption, string Status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddErrorLogMessage", ReplyAction="http://tempuri.org/IService/AddErrorLogMessageResponse")]
+        void AddErrorLogMessage(int userId, int clientId, string errorMessage);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddErrorLogMessage", ReplyAction="http://tempuri.org/IService/AddErrorLogMessageResponse")]
+        System.Threading.Tasks.Task AddErrorLogMessageAsync(int userId, int clientId, string errorMessage);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2797,14 +3133,6 @@ namespace Corspro.Services.CorsProServiceReference {
             return base.Channel.GetInterfaceByIdAndClientIdAsync(userId, clientId);
         }
         
-        public Corspro.Services.CorsProServiceReference.OpportunityDto GetOpportunityByQuoteId(string quoteId) {
-            return base.Channel.GetOpportunityByQuoteId(quoteId);
-        }
-        
-        public System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.OpportunityDto> GetOpportunityByQuoteIdAsync(string quoteId) {
-            return base.Channel.GetOpportunityByQuoteIdAsync(quoteId);
-        }
-        
         public string[][] GetLastRetrievedKeys() {
             return base.Channel.GetLastRetrievedKeys();
         }
@@ -2813,12 +3141,102 @@ namespace Corspro.Services.CorsProServiceReference {
             return base.Channel.GetLastRetrievedKeysAsync();
         }
         
+        public Corspro.Services.CorsProServiceReference.OpportunityDto GetOpportunityByQuoteId(string quoteId) {
+            return base.Channel.GetOpportunityByQuoteId(quoteId);
+        }
+        
+        public System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.OpportunityDto> GetOpportunityByQuoteIdAsync(string quoteId) {
+            return base.Channel.GetOpportunityByQuoteIdAsync(quoteId);
+        }
+        
         public Corspro.Services.CorsProServiceReference.Response SaveDocumentInformation(int clientId, int userId, string quoteId, string documentType, string filePlatformId, string sharedSavedLocation) {
             return base.Channel.SaveDocumentInformation(clientId, userId, quoteId, documentType, filePlatformId, sharedSavedLocation);
         }
         
         public System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.Response> SaveDocumentInformationAsync(int clientId, int userId, string quoteId, string documentType, string filePlatformId, string sharedSavedLocation) {
             return base.Channel.SaveDocumentInformationAsync(clientId, userId, quoteId, documentType, filePlatformId, sharedSavedLocation);
+        }
+        
+        public Corspro.Services.CorsProServiceReference.UserCloudStatusDto GetUserAppStatus(int clientId, int userId) {
+            return base.Channel.GetUserAppStatus(clientId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.UserCloudStatusDto> GetUserAppStatusAsync(int clientId, int userId) {
+            return base.Channel.GetUserAppStatusAsync(clientId, userId);
+        }
+        
+        public string UploadUserMachineData(
+                    int ClientId, 
+                    int UserId, 
+                    string WindowsUserName, 
+                    string MacAddress, 
+                    string VersionDotNet, 
+                    string VersionExcel, 
+                    string VersionWord, 
+                    string VersionSDA, 
+                    string VersionSalesManager, 
+                    string VersionWindows, 
+                    string InstallType, 
+                    string UserFullName, 
+                    string Email, 
+                    string CompanyLong, 
+                    string Title, 
+                    string Phone, 
+                    string UserTimeZone) {
+            return base.Channel.UploadUserMachineData(ClientId, UserId, WindowsUserName, MacAddress, VersionDotNet, VersionExcel, VersionWord, VersionSDA, VersionSalesManager, VersionWindows, InstallType, UserFullName, Email, CompanyLong, Title, Phone, UserTimeZone);
+        }
+        
+        public System.Threading.Tasks.Task<string> UploadUserMachineDataAsync(
+                    int ClientId, 
+                    int UserId, 
+                    string WindowsUserName, 
+                    string MacAddress, 
+                    string VersionDotNet, 
+                    string VersionExcel, 
+                    string VersionWord, 
+                    string VersionSDA, 
+                    string VersionSalesManager, 
+                    string VersionWindows, 
+                    string InstallType, 
+                    string UserFullName, 
+                    string Email, 
+                    string CompanyLong, 
+                    string Title, 
+                    string Phone, 
+                    string UserTimeZone) {
+            return base.Channel.UploadUserMachineDataAsync(ClientId, UserId, WindowsUserName, MacAddress, VersionDotNet, VersionExcel, VersionWord, VersionSDA, VersionSalesManager, VersionWindows, InstallType, UserFullName, Email, CompanyLong, Title, Phone, UserTimeZone);
+        }
+        
+        public string GetUserStatus(int clientId, int userId) {
+            return base.Channel.GetUserStatus(clientId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetUserStatusAsync(int clientId, int userId) {
+            return base.Channel.GetUserStatusAsync(clientId, userId);
+        }
+        
+        public Corspro.Services.CorsProServiceReference.ClientImportOptionDto[] GetClientImportOptionListByClientId(int clientId) {
+            return base.Channel.GetClientImportOptionListByClientId(clientId);
+        }
+        
+        public System.Threading.Tasks.Task<Corspro.Services.CorsProServiceReference.ClientImportOptionDto[]> GetClientImportOptionListByClientIdAsync(int clientId) {
+            return base.Channel.GetClientImportOptionListByClientIdAsync(clientId);
+        }
+        
+        public int InsertClientImportOption(int ClientId, string ImportOption, string Status) {
+            return base.Channel.InsertClientImportOption(ClientId, ImportOption, Status);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertClientImportOptionAsync(int ClientId, string ImportOption, string Status) {
+            return base.Channel.InsertClientImportOptionAsync(ClientId, ImportOption, Status);
+        }
+        
+        public void AddErrorLogMessage(int userId, int clientId, string errorMessage) {
+            base.Channel.AddErrorLogMessage(userId, clientId, errorMessage);
+        }
+        
+        public System.Threading.Tasks.Task AddErrorLogMessageAsync(int userId, int clientId, string errorMessage) {
+            return base.Channel.AddErrorLogMessageAsync(userId, clientId, errorMessage);
         }
     }
 }

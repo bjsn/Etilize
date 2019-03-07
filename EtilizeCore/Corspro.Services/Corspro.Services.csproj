@@ -56,6 +56,9 @@
     <None Include="Service References\CorsProServiceReference\Corspro.Services.CorsProServiceReference.ClientDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\CorsProServiceReference\Corspro.Services.CorsProServiceReference.ClientImportOptionDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CorsProServiceReference\Corspro.Services.CorsProServiceReference.ClientUpdateDBDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -69,6 +72,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CorsProServiceReference\Corspro.Services.CorsProServiceReference.Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CorsProServiceReference\Corspro.Services.CorsProServiceReference.UserCloudStatusDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CorsProServiceReference\Service.wsdl" />

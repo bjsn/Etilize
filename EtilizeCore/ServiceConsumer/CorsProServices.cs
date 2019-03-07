@@ -13,7 +13,8 @@ namespace Etilize.Services
         public CorsProServices(string sdaCloudUrl)
         {
             this._sdaCloudUrl = sdaCloudUrl;
-            System.Net.ServicePointManager.ServerCertificateValidationCallback += (se, cert, chain, sslerror) => true; // IMPORTANT!!! execute this to avoid error connection because of the certificate in the server
+            // IMPORTANT!!! execute this to avoid error connection because of the certificate in the server
+            System.Net.ServicePointManager.ServerCertificateValidationCallback += (se, cert, chain, sslerror) => true; 
         }
 
         public List<string[]> GetLastEtilizeRetrievedKeys()
@@ -31,6 +32,24 @@ namespace Etilize.Services
             }
             return list;
         }
+
+
+        public void SendErroLogMessageToCloud(int userId, int clientId, string errorMessage)
+        {
+          
+            try
+            {
+                EndpointAddress remoteAddress = new EndpointAddress(new Uri(this._sdaCloudUrl));
+                new ServiceClient("WSHttpBinding_IService", remoteAddress).AddErrorLogMessage(userId, clientId, errorMessage);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+           
+        }
+
+
     }
 }
 

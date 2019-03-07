@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -29,6 +30,37 @@ namespace Corspro.Services
                 }
             }
             return str;
+        }
+
+        private static string ReadValueFromRegistry(string regKey, string subKey)
+        {
+            // Opening the registry key
+            var baseRegistryKey = Registry.CurrentUser;
+
+            // Open a subKey as read-only
+            RegistryKey sk1 = baseRegistryKey.OpenSubKey(regKey);
+            // If the RegistrySubKey doesn't exist -> (null)
+            if (sk1 == null)
+            {
+                return null;
+            }
+            try
+            {
+                // If the RegistryKey exists I get its value
+                // or null is returned.
+                var skey = sk1.GetValue(subKey);
+
+                if (skey == null)
+                {
+                    return null;
+                }
+
+                return (string)skey;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

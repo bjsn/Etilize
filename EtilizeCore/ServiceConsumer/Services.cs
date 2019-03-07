@@ -85,28 +85,36 @@ namespace Etilize.Services
             });
         }
 
-        public Task<string> ExecuteCall(string urlGet)
+        public async  Task<string> ExecuteCall(string urlGet)
         {
-            Task<string> task2;
             string requestUriString = string.Format(this.EtilizeEndPoint, this.EtilizeAPPId, this.EtilizeSiteID) + urlGet;
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUriString);
                 request.ContentType = "GET";
                 request.Method = "GET";
-                request.Timeout = 0x4e20;
+                request.Timeout = 20000;
                 request.Proxy = null;
-                task2 = Task.Factory.FromAsync<WebResponse>(new Func<AsyncCallback, object, IAsyncResult>(request.BeginGetResponse), asyncResult => request.EndGetResponse(asyncResult), null).ContinueWith<string>(t => ReadStreamFromResponse(t.Result));
+                //task = Task
+                //        .Factory
+                //        .FromAsync<WebResponse>(new Func<AsyncCallback, object, IAsyncResult>(request.BeginGetResponse), asyncResult => request.EndGetResponse(asyncResult), null)
+                //        .ContinueWith<string>(t => ReadStreamFromResponse(t.Result));
+                Task<WebResponse> taskFinal = Task.Factory.FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null);
+                WebResponse response = await taskFinal;
+                return ReadStreamFromResponse(taskFinal.Result);
             }
-            catch (WebException exception1)
+            catch (WebException ex)
             {
-                throw new Exception(exception1.Message);
+                throw ex;
             }
-            catch (Exception exception3)
+            catch (AggregateException ex)
             {
-                throw new Exception(exception3.Message);
+                throw ex;
             }
-            return task2;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public string ExecuteCall2(string urlGet)
@@ -161,6 +169,14 @@ namespace Etilize.Services
 
         private static string ReadStreamFromResponse(WebResponse response)
         {
+            //using (Stream responseStream = response.GetResponseStream())
+            //using (StreamReader sr = new StreamReader(responseStream))
+            //{
+            //    //Need to return this response 
+            //    string strContent = sr.ReadToEnd();
+            //    return strContent;
+            //}
+
             string str2;
             using (Stream stream = response.GetResponseStream())
             {

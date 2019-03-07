@@ -32,7 +32,9 @@
                         ProductPicturePath = (row["ProductPicturePath"] != DBNull.Value) ? row["ProductPicturePath"].ToString() : string.Empty,
                         ProductPictureURL = (row["ProductPictureURL"] != DBNull.Value) ? row["ProductPictureURL"].ToString() : string.Empty,
                         MfgPartNumber = (row["MfgPartNumber"] != DBNull.Value) ? row["MfgPartNumber"].ToString() : string.Empty,
-                        MfgName = (row["MfgName"] != DBNull.Value) ? row["MfgName"].ToString() : string.Empty
+                        MfgName = (row["MfgName"] != DBNull.Value) ? row["MfgName"].ToString() : string.Empty,
+                        MfgID = (row["MfgID"] != DBNull.Value) ? Int32.Parse(row["MfgID"].ToString()) : 0,
+                        ProductType = (row["ProductType"] != DBNull.Value) ? row["ProductType"].ToString() : string.Empty
                     };
                     list.Add(item);
                 }
@@ -62,7 +64,9 @@
             {
                 base.OpenDbConnection();
                 DataTable dataTable = new DataTable();
-                new OleDbDataAdapter("SELECT PartNumber, VendorName, DownloadDT, ProductName, FeatureBullets, MarketingInfo, TechnicalInfo, ProductPicturePath, ProductPictureURL, MfgPartNumber, MfgName FROM ProposalContentByPart WHERE PartNumber IN(" + partNumbers + ");", base.DbConnection).Fill(dataTable);
+                new OleDbDataAdapter("SELECT PartNumber, VendorName, DownloadDT, ProductName, FeatureBullets, MarketingInfo, TechnicalInfo, ProductPicturePath, ProductPictureURL, MfgPartNumber, MfgName, MfgID, ProductType, MfgID, ProductType "
+                                    +"FROM ProposalContentByPart " 
+                                    +"WHERE PartNumber IN(" + partNumbers + ");", base.DbConnection).Fill(dataTable);
                 base.CloseDbConnection();
                 list = this.Convert(dataTable);
             }
@@ -83,7 +87,8 @@
             try
             {
                 OleDbCommand command = new OleDbCommand {
-                    CommandText = "Insert Into ProposalContentByPart(PartNumber, VendorName, DownloadDT, ProductName, FeatureBullets, MarketingInfo, TechnicalInfo, ProductPicturePath, ProductPictureURL, MfgPartNumber, MfgName) values (@PartNumber, @VendorName, @DownloadDT, @ProductName, @FeatureBullets, @MarketingInfo, @TechnicalInfo, @ProductPicturePath, @ProductPictureURL, @MfgPartNumber, @MfgName)",
+                    CommandText = "INSERT INTO ProposalContentByPart(PartNumber, VendorName, DownloadDT, ProductName, FeatureBullets, MarketingInfo, TechnicalInfo, ProductPicturePath, ProductPictureURL, MfgPartNumber, MfgName, MfgID, ProductType) "
+                                + "VALUES (@PartNumber, @VendorName, @DownloadDT, @ProductName, @FeatureBullets, @MarketingInfo, @TechnicalInfo, @ProductPicturePath, @ProductPictureURL, @MfgPartNumber, @MfgName, @MfgID, @ProductType)",
                     CommandType = CommandType.Text
                 };
                 command.Parameters.AddWithValue("@PartNumber", proposalContentByPart.PartNumber.ToString());
@@ -97,6 +102,8 @@
                 command.Parameters.AddWithValue("@ProductPictureURL", string.IsNullOrEmpty(proposalContentByPart.ProductPictureURL) ? "" : proposalContentByPart.ProductPictureURL);
                 command.Parameters.AddWithValue("@MfgPartNumber", string.IsNullOrEmpty(proposalContentByPart.MfgPartNumber) ? "" : proposalContentByPart.MfgPartNumber);
                 command.Parameters.AddWithValue("@MfgName", string.IsNullOrEmpty(proposalContentByPart.MfgName) ? "" : proposalContentByPart.MfgName);
+                command.Parameters.AddWithValue("@MfgID", proposalContentByPart.MfgID);
+                command.Parameters.AddWithValue("@ProductType", string.IsNullOrEmpty(proposalContentByPart.ProductType) ? "" : proposalContentByPart.ProductType);
                 command.Connection = base.DbConnection;
                 command.ExecuteNonQuery();
             }
@@ -136,7 +143,12 @@
             try
             {
                 OleDbCommand command = new OleDbCommand {
-                    CommandText = "Update ProposalContentByPart Set DownloadDT = @DownloadDT, ProductName = @ProductName, FeatureBullets = @FeatureBullets, MarketingInfo = @MarketingInfo, TechnicalInfo = @TechnicalInfo, ProductPicturePath = @ProductPicturePath, ProductPictureURL = @ProductPictureURL, MfgPartNumber = @MfgPartNumber, MfgName = @MfgName Where PartNumber = '" + proposalContentByPart.PartNumber + "'",
+                    CommandText = "UPDATE ProposalContentByPart "
+                                +" SET DownloadDT = @DownloadDT, ProductName = @ProductName, FeatureBullets = @FeatureBullets, MarketingInfo = @MarketingInfo, " 
+                                +"TechnicalInfo = @TechnicalInfo, ProductPicturePath = @ProductPicturePath, ProductPictureURL = @ProductPictureURL, MfgPartNumber = @MfgPartNumber, " 
+                                +"MfgName = @MfgName Where PartNumber = '" + proposalContentByPart.PartNumber + "' "
+                                +"MfgID = @MfgID, "
+                                + "ProductType = @ProductType",
                     CommandType = CommandType.Text
                 };
                 command.Parameters.AddWithValue("@DownloadDT", DateTime.Now.ToString(CultureInfo.InvariantCulture));
@@ -148,6 +160,8 @@
                 command.Parameters.AddWithValue("@ProductPictureURL", string.IsNullOrEmpty(proposalContentByPart.ProductPictureURL) ? "" : proposalContentByPart.ProductPictureURL);
                 command.Parameters.AddWithValue("@MfgPartNumber", proposalContentByPart.MfgPartNumber.ToString());
                 command.Parameters.AddWithValue("@MfgName", proposalContentByPart.MfgName.ToString());
+                command.Parameters.AddWithValue("@MfgID", proposalContentByPart.MfgID);
+                command.Parameters.AddWithValue("@ProductType", string.IsNullOrEmpty(proposalContentByPart.ProductType) ? "" : proposalContentByPart.ProductType);
                 command.Connection = base.DbConnection;
                 command.ExecuteNonQuery();
             }

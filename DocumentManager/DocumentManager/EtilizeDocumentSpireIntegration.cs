@@ -21,184 +21,10 @@ namespace DocumentManager
             this.documentConfiguration = documentConfiguration;
         }
 
-
         /// <summary>
         /// </summary>
-        /// <param name="proposalContentByParts"></param>
-        /// <param name="savePath"></param>
-        /// <param name="height"></param>
-        /// <param name="width"></param>
-        public void StarEtilizeDocAssebly(List<ProposalContentByPart> proposalContentByParts, string savePath, int height = 0, int width = 0)
-        {/*
-            Document document = new Document();
-            document.LoadFromFile(@"C:\CorsPro\PropGen\Data_Byeron\template.doc");
-
-            if (proposalContentByParts.Count > 0)
-            {
-                int counter = 0;
-                UpdateProgress(0);
-
-         
-                foreach (var proposalPart in proposalContentByParts)
-                {
-                    counter++;
-                    int total = (int)((counter * 100) / proposalContentByParts.Count);
-                    UpdateProgress(total);
-                    UpdateProgressText("Assembling content for " + proposalPart.PartNumber);
-                    
-                    if (proposalPart.Document == null && documentConfiguration.ExcludeIfNoPic && string.IsNullOrEmpty(proposalPart.ProductPicturePath))
-                    {
-                        continue;
-                    }
-
-                    if (proposalPart.Document == null && (string.IsNullOrEmpty(proposalPart.MarketingInfo) && string.IsNullOrEmpty(proposalPart.MarketingInfo)) || (!documentConfiguration.MarketingInfo && !documentConfiguration.Benefits))
-                    {
-                        continue;
-                    }
-
-                    Section section = document.AddSection();
-                    if (proposalPart.Document == null && proposalPart.VendorID != 0)
-                    {
-                        string title = proposalPart.ProductName;
-                        if (!string.IsNullOrEmpty(proposalPart.Optional))
-                        {
-                            string optional = (proposalPart.Optional.ToLower().Equals("y") ? "(Optional)" : "");
-                            title += " " + optional;
-                        }
-
-                        Paragraph titleParagraph = section.AddParagraph();
-                        titleParagraph.ApplyStyle(ParagraphStyle.NameToBuiltIn("Heading 3"));
-                        titleParagraph.AppendText(title);
-
-                        Paragraph whiteTitle = section.AddParagraph();
-                        if (!String.IsNullOrEmpty(proposalPart.ProductPicturePath) && documentConfiguration.Picture)
-                        {
-                            DocPicture Pic = whiteTitle.AppendPicture(Image.FromFile(proposalPart.ProductPicturePath));
-                            Pic.Width = 180;
-                            Pic.Height = 180;
-                            Pic.TextWrappingStyle = TextWrappingStyle.Tight;
-                            Pic.TextWrappingType = TextWrappingType.Both;
-                            Pic.HorizontalAlignment = ShapeHorizontalAlignment.Right;
-                        }
-                       
-
-                        if (documentConfiguration.Benefits)
-                        {
-                            string[] bulletItems = proposalPart.FeatureBullets.Replace("</li>", "$").Replace("<li>", "").Replace("</ul>", "").Replace("<ul>", "").Split('$').Where(x => !String.IsNullOrEmpty(x)).ToArray();
-
-                            if (bulletItems.Count() > 0)
-                            {
-                                for (int j = 0; j < bulletItems.Length; j++)
-                                {
-                                    Paragraph bullet = section.AddParagraph();
-                                    bullet.AppendText(bulletItems[j]);
-                                    bullet.ListFormat.ApplyBulletStyle();
-                                    bullet.ListFormat.CurrentListLevel.NumberPosition = -10;
-                                    if (j == bulletItems.Length - 1)
-                                    {
-                                        bullet.AppendBreak(BreakType.LineBreak);
-                                    }
-                                }
-                            }
-                        }
-
-                        if (documentConfiguration.MarketingInfo)
-                        {
-                            if (!String.IsNullOrEmpty(proposalPart.MarketingInfo))
-                            {
-                                bool insertWhiteP = false;
-                                List<KeyValuePair<string, string>> results = SplitHtmlResult(proposalPart.MarketingInfo);
-                                foreach (var result in results)
-                                {
-                                    switch (result.Key)
-                                    {
-                                        case "p":
-                                            Paragraph paragraph = section.AddParagraph();
-                                            paragraph.ApplyStyle(ParagraphStyle.NameToBuiltIn("Normal"));
-                                            if (insertWhiteP)
-                                            {
-                                                paragraph.AppendBreak(BreakType.LineBreak);
-                                            }
-                                            paragraph.AppendText(result.Value);
-                                            paragraph.AppendBreak(BreakType.LineBreak);
-                                            insertWhiteP = false;
-                                            break;
-                                        case "li":
-                                            Paragraph bullet = section.AddParagraph();
-                                            bullet.AppendText(result.Value);
-                                            bullet.ListFormat.ApplyBulletStyle();
-                                            bullet.ListFormat.CurrentListLevel.NumberPosition = -10;
-                                            insertWhiteP = true;
-                                            break;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (documentConfiguration.TechInfo)
-                        {
-                            Paragraph paragraph = section.AddParagraph();
-                            paragraph.AppendBreak(BreakType.LineBreak);
-                            paragraph.ApplyStyle(ParagraphStyle.NameToBuiltIn("Normal"));
-                            paragraph.AppendText("Features of the " + proposalPart.ProductName + ":");
-                            paragraph.AppendBreak(BreakType.LineBreak);
-
-                            proposalPart.TechnicalInfo = proposalPart.TechnicalInfo.Replace("</br>", "").Replace("<br>", "").Replace("</p>", "").Replace("<p>", "");
-                            string[] technicalItems = proposalPart.TechnicalInfo.Replace("</li>", "$").Replace("<li>", "").Replace("</ul>", "").Replace("<ul>", "").Split('$').Where(x => !String.IsNullOrEmpty(x)).ToArray();
-
-                            if (technicalItems.Count() > 0)
-                            {
-                                for (int j = 0; j < technicalItems.Length; j++)
-                                {
-                                    Paragraph bullet = section.AddParagraph();
-                                    bullet.AppendText(technicalItems[j]);
-                                    bullet.ListFormat.ApplyBulletStyle();
-                                    bullet.ListFormat.CurrentListLevel.NumberPosition = -10;
-                                    if (j == technicalItems.Length - 1)
-                                    {
-                                        bullet.AppendBreak(BreakType.LineBreak);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else 
-                    {
-                        try
-                        {
-                           
-                            if (proposalPart.Document != null)
-                            {
-                                section.AddParagraph();
-                                string fileName = Path.GetFileName(savePath);
-                                string tempFilePath = savePath.Replace(fileName, "") + "temp.doc";
-                                string filePath = TempPartFileFromByteArray(proposalPart.Document, tempFilePath);
-                                Document sourceDoc = new Document();
-                                sourceDoc.LoadFromFile(filePath);
-                                foreach (Section sec in sourceDoc.Sections)
-                                {
-                                    foreach (DocumentObject obj in sec.Body.ChildObjects)
-                                    {
-                                        DocumentObject clonable = obj.Clone();
-                                        section.Body.ChildObjects.Add(clonable);
-                                    }
-                                }
-                                DeleteTempFile(filePath);
-                            }
-                        }
-                        catch (Exception e)
-                        { 
-                        }
-                    }
-                }
-            }
-            document.SaveToFile(@"C:\CorsPro\PropGen\Data_Byeron\testDoc.doc", FileFormat.Doc);
-            document.Close();
-
-            */
-        }
-
-
+        /// <param name="html"></param>
+        /// <returns></returns>
         public static string SaveToTemporaryFile(string html)
         {
             string htmlTempFilePath = Path.Combine(Path.GetTempPath(), string.Format("{0}.html", Path.GetRandomFileName()));
@@ -212,6 +38,10 @@ namespace DocumentManager
         }
 
 
+        /// <summary>
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private List<KeyValuePair<string, string>> SplitHtmlResult(string text)
         {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
@@ -301,5 +131,6 @@ namespace DocumentManager
                 File.Delete(url);
             }
         }
+
     }
 }

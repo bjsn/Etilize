@@ -37,6 +37,7 @@ namespace Etilize.Integration
         private readonly EtilizeDocumentIntegration EtilizeDocumentIntegration;
         private EtilizeDocumentConfiguration documentConfiguration;
         private readonly SetupDL setupDL;
+        
 
         private readonly string EtilizeConnectionPath;
         private readonly string DIRECTORY_ROOT;
@@ -49,19 +50,20 @@ namespace Etilize.Integration
         /// <param name="documentConfiguration"></param>
         public Integration(EtilizeDocumentConfiguration documentConfiguration)
         {
-            string regKey = ConfigurationManager.AppSettings["RegKey"].ToString(CultureInfo.InvariantCulture);
-            string str3 = ConfigurationManager.AppSettings["DefaultSubKeyDir"].ToString(CultureInfo.InvariantCulture);
+            string RegKey = ConfigurationManager.AppSettings["RegKey"].ToString(CultureInfo.InvariantCulture);
+            string DefaultSubKeyDir = ConfigurationManager.AppSettings["DefaultSubKeyDir"].ToString(CultureInfo.InvariantCulture);
             ConfigurationManager.AppSettings["EtilizeEndPoint"].ToString(CultureInfo.InvariantCulture);
             this.DownloadXMLInfo = ConfigurationManager.AppSettings["DownloadXMLInfo"].ToString(CultureInfo.InvariantCulture);
             string str6 = ConfigurationManager.AppSettings["DefaultSubKeyLocalDB"].ToString(CultureInfo.InvariantCulture);
             this.DbPassword = Utilitary.Decrypt(ConfigurationManager.AppSettings["dwpbd"].ToString(CultureInfo.InvariantCulture));
-            this.DIRECTORY_ROOT = Utilitary.ReadValueFromRegistry(regKey, ConfigurationManager.AppSettings["SubKeyDir"].ToString(CultureInfo.InvariantCulture));
-            this.DIRECTORY_COMPANY = Utilitary.ReadValueFromRegistry(regKey, ConfigurationManager.AppSettings["Directory_Company"].ToString(CultureInfo.InvariantCulture));
-            this.EtilizeConnectionPath = str3 + ConfigurationManager.AppSettings["ProposalContentDB"].ToString(CultureInfo.InvariantCulture);
+            this.DIRECTORY_ROOT = Utilitary.ReadValueFromRegistry(RegKey, ConfigurationManager.AppSettings["SubKeyDir"].ToString(CultureInfo.InvariantCulture));
+            this.DIRECTORY_COMPANY = Utilitary.ReadValueFromRegistry(RegKey, ConfigurationManager.AppSettings["Directory_Company"].ToString(CultureInfo.InvariantCulture));
+            this.EtilizeConnectionPath = DefaultSubKeyDir + ConfigurationManager.AppSettings["ProposalContentDB"].ToString(CultureInfo.InvariantCulture);
             this.documentConfiguration = documentConfiguration;
             string connectionValue = this.DIRECTORY_ROOT + str6;
             this.setupDL = new SetupDL(connectionValue, this.DbPassword);
             this.EtilizeServices = new Services.Services();
+            
             this.ExcelManager = new ExcelManager();
             this.EtilizeDocumentIntegration = new EtilizeDocumentIntegration(documentConfiguration);
             this.EtilizeDocumentIntegration.UpdateProgress += new EtilizeDocumentIntegration.UpdateProgressDelegate(this.UpdateProgressIntegration);
@@ -76,7 +78,7 @@ namespace Etilize.Integration
         {
             try
             {
-                string str2 = ConfigurationManager.AppSettings["DOCSetupFile"].ToString(CultureInfo.InvariantCulture);
+                string DOCSetupFile = ConfigurationManager.AppSettings["DOCSetupFile"].ToString(CultureInfo.InvariantCulture);
                 ConfigurationManager.AppSettings["DefaultSubKeyDir"].ToString(CultureInfo.InvariantCulture);
                 this.UpdateProgressText("Preparing parts");
                 this.GetEtilizeCloudID();
@@ -104,8 +106,8 @@ namespace Etilize.Integration
                 List<Vendor> distinctVendor = this.GetDistinctVendor(proposalContentByParts);
                 rdl.Save(distinctVendor);
 
-                str2 = str2.Replace("[USERNAME]", userName);
-                string savePath = this.DIRECTORY_ROOT + str2;
+                DOCSetupFile = DOCSetupFile.Replace("[USERNAME]", userName);
+                string savePath = this.DIRECTORY_ROOT + DOCSetupFile;
                 this.UpdateProgressSubTitle("Assembling proposal content (please wait)…");
                 this.UpdateProgressText("Processing document, this could take some minutes");
                 this.UpdateStep(75);
@@ -119,9 +121,30 @@ namespace Etilize.Integration
                 this.UpdateProgressText("Calling PopGen.exe");
                 Process.Start(this.DIRECTORY_ROOT + @"PropGen\PropGen.exe");
             }
-            catch (Exception exception1)
+            catch (Exception ex)
             {
-                throw new Exception(exception1.Message);
+                SendErrorMessageToCloud(ex.Message);
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        private void SendErrorMessageToCloud(string errorMessage) 
+        {
+            if (Utilitary.CheckForInternetConnection())
+            {
+                string RegKey = ConfigurationManager.AppSettings["RegKey"].ToString(CultureInfo.InvariantCulture);
+                int ClientIdInt = 0;
+                int UserIdInt = 0;
+                Int32.TryParse(Utilitary.ReadValueFromRegistry(RegKey, "ClientId"), out ClientIdInt);
+                Int32.TryParse(Utilitary.ReadValueFromRegistry(RegKey, "UserId"), out UserIdInt);
+                if (errorMessage.Length > 375)
+                {
+                    errorMessage = errorMessage.Substring(0, 375) + "...";
+                }
+                new CorsProServices(Utilitary.GetSetupDLProperty(this.setupDL.GetSetupList(), "SDACloudUpdatesURL"))
+
+                    .SendErroLogMessageToCloud(UserIdInt, ClientIdInt, "Etilize error: " + errorMessage);
             }
         }
 
@@ -244,29 +267,43 @@ namespace Etilize.Integration
         /// <returns></returns>
         private Dictionary<string, Task<string>> ExecuteServerCalls(List<ExcelPartRequest> excelPartsRequest, List<ProposalContentByPart> proposalContentByPartsSaved) 
         {
-            Dictionary<string, Task<string>> listTest = new Dictionary<string, Task<string>>();
-            if (Utilitary.CheckForInternetConnection())
+            try
             {
-                int counter = 0;
-                foreach (var excelPart in excelPartsRequest)
+                Dictionary<string, Task<string>> listContent = new Dictionary<string, Task<string>>();
+                if (Utilitary.CheckForInternetConnection())
                 {
-                    counter++;
-                    //if the component not exist in the local database download it
-                    ProposalContentByPart contentExist = proposalContentByPartsSaved.Where(x => x.PartNumber.Equals(excelPart.PartNumber)).FirstOrDefault();
-                    if (contentExist == null && String.IsNullOrEmpty(excelPart.SDADocName))
+                    int counter = 0;
+                    foreach (var excelPart in excelPartsRequest)
                     {
-                        UpdateProgressText("Downloading information for " + excelPart.PartNumber);
-                        int total = (int)((counter * 100) / excelPartsRequest.Count);
-                        UpdateProgress(total);
-                        Task<string> task = EtilizeServices.ExecuteCall("&catalog=na&method=getProduct&partNumber=" + excelPart.PartNumber + "&mfgName=" + excelPart.VendorName + "&descriptionTypes=0,3&skuType=all&manufacturer=default&featureBulletsMax=10&displayTemplate=0&resourceTypes=all");
-                        listTest.Add(excelPart.PartNumber, task);
+                        counter++;
+                        //if the component not exist in the local database download it
+                        ProposalContentByPart contentExist = proposalContentByPartsSaved.Where(x => x.PartNumber.Equals(excelPart.PartNumber)).FirstOrDefault();
+                        if (contentExist == null && String.IsNullOrEmpty(excelPart.SDADocName))
+                        {
+                            UpdateProgressText("Downloading information for " + excelPart.PartNumber);
+                            int total = (int)((counter * 100) / excelPartsRequest.Count);
+                            UpdateProgress(total);
+                            Task<string> task = this.EtilizeServices.ExecuteCall("&catalog=na&method=getProduct&partNumber=" + excelPart.PartNumber + "&mfgName=" + excelPart.VendorName + "&descriptionTypes=0,3&skuType=all&manufacturer=default&featureBulletsMax=10&displayTemplate=0&resourceTypes=all");
+                            listContent.Add(excelPart.PartNumber, task);
+                        }
                     }
+                    UpdateProgressText("Processing server response");
+                    Task.WaitAll(listContent.Values.ToArray());
+                    UpdateProgressText("Server response done");
                 }
-                UpdateProgressText("Processing server response");
-                Task.WaitAll(listTest.Values.ToArray());
-                UpdateProgressText("Server response done");
+                return listContent;
             }
-            return listTest;
+            catch (Exception ex) 
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new Exception(ex.Message + " " + ex.InnerException);
+                }
+                else
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
         }
 
 
@@ -593,33 +630,36 @@ namespace Etilize.Integration
                 string imageUrl = GetRecomendedImage(resourcesList);
                 string filename = imageUrl.Substring(imageUrl.LastIndexOf("/") + 1, (imageUrl.Length - imageUrl.LastIndexOf("/") - 1));
 
-                if (DownloadXMLInfo.Equals("Truse"))
+                if (DownloadXMLInfo.Equals("True"))
                     DownloadXML(etilizeResult, componentPart.PartNumber);
 
-                IEnumerable<XElement> skusList = load.Elements().Where(t => t.Name.LocalName.Contains("skus"));
-                IEnumerable<XElement> descriptionsList = load.Elements().Where(t => t.Name.LocalName.Contains("descriptions"));
-                IEnumerable<XElement> featureBulletsList = load.Elements().Where(t => t.Name.LocalName.Contains("featureBullets"));
-                IEnumerable<XElement> datasheetList = load.Elements().Where(t => t.Name.LocalName.Contains("datasheet"));
+                //getting all the sections of the XML 
+                XElement MainInfo = load.Elements().Where(t => t.Name.LocalName.Contains("manufacturer id")).FirstOrDefault();
+                IEnumerable<XElement> SkusList = load.Elements().Where(t => t.Name.LocalName.Contains("skus"));
+                IEnumerable<XElement> DescriptionsList = load.Elements().Where(t => t.Name.LocalName.Contains("descriptions"));
+                IEnumerable<XElement> FeatureBulletsList = load.Elements().Where(t => t.Name.LocalName.Contains("featureBullets"));
+                IEnumerable<XElement> DatasheetList = load.Elements().Where(t => t.Name.LocalName.Contains("datasheet"));
 
-                string skuElement = GetInfoFromXElement(skusList, "sku", "bullet");
-
-                string ManufacurerName = GetMarketingInformationFromXElement(datasheetList, "General Information", "Brand Name");
-                string productName = GetMarketingInformationFromXElement(datasheetList, "General Information", "Product Name");
-                if (string.IsNullOrEmpty(productName) || string.IsNullOrEmpty(ManufacurerName))
+                string skuElement = GetInfoFromXElement(SkusList, "sku", "bullet");
+                string ManufacurerName = GetMarketingInformationFromXElement(DatasheetList, "General Information", "Brand Name");
+                string ProductName = GetMarketingInformationFromXElement(DatasheetList, "General Information", "Product Name");
+                string ProductType = GetMarketingInformationFromXElement(DatasheetList, "General Information", "Product Type");
+                if (string.IsNullOrEmpty(ProductName) || string.IsNullOrEmpty(ManufacurerName))
                 {
-                    productName = GetDescriptionFromXElement(descriptionsList, "description", "0");
+                    ProductName = GetDescriptionFromXElement(DescriptionsList, "description", "0");
                 }
                 else
                 {
-                    productName = ManufacurerName + " " + productName;
+                    ProductName = ManufacurerName + " " + ProductName;
                 }
 
-                string productLittleDesc = GetDescriptionFromXElement(descriptionsList, "description", "3");
-                string featureBullets = GetFeatureBulletFromXElement(featureBulletsList, "featureBullet");
-                string marketingInfo = GetMarketingInformationFromXElement(datasheetList, "General Information", "Marketing Information");
-                string technicalInfo = GetTechnicalInformationFromXElement(datasheetList, "General Information");
-                string mfgPartNumber = GetMfgPartNumberFromXElement(load.Elements(), "manufacturer", "number");
-                string mfgPartName = GetMfgPartNumberFromXElement(load.Elements(), "manufacturer", "name");
+                string ManufacturerId = (MainInfo != null) ? MainInfo.Value : "";
+                string ProductLittleDesc = GetDescriptionFromXElement(DescriptionsList, "description", "3");
+                string FeatureBullets = GetFeatureBulletFromXElement(FeatureBulletsList, "featureBullet");
+                string MarketingInfo = GetMarketingInformationFromXElement(DatasheetList, "General Information", "Marketing Information");
+                string TechnicalInfo = GetTechnicalInformationFromXElement(DatasheetList, "General Information");
+                string MfgPartNumber = GetMfgPartNumberFromXElement(load.Elements(), "manufacturer", "number");
+                string MfgPartName = GetMfgPartNumberFromXElement(load.Elements(), "manufacturer", "name");
 
                 ProposalContentByPart proposal = new ProposalContentByPart
                 {
@@ -628,12 +668,13 @@ namespace Etilize.Integration
                     PartNumber = componentPart.PartNumber,
                     VendorName = componentPart.VendorName,
                     VendorID = componentPart.VendorId,
-                    ProductName = productName,
-                    FeatureBullets = featureBullets,
-                    MarketingInfo = marketingInfo,
-                    TechnicalInfo = technicalInfo,
-                    MfgPartNumber = mfgPartNumber,
-                    MfgName = mfgPartName
+                    ProductName = ProductName,
+                    FeatureBullets = FeatureBullets,
+                    MarketingInfo = MarketingInfo,
+                    TechnicalInfo = TechnicalInfo,
+                    MfgPartNumber = MfgPartNumber,
+                    MfgName = MfgPartName,
+                    ProductType = ProductType
                 };
                 return proposal;
             }
@@ -669,16 +710,22 @@ namespace Etilize.Integration
             return element;
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="excelPartsRequest"></param>
+        /// <returns></returns>
         public List<ProposalContentByPart> ProcessExcelPartsRequestRTF(List<ExcelPartRequest> excelPartsRequest)
         {
             string downloadPath = this.DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
             ProposalContentByPartDL tdl = new ProposalContentByPartDL(this.EtilizeConnectionPath) {
                 DbPwd = this.DbPassword
             };
+
             List<ProposalContentByPart> downloadedList = new List<ProposalContentByPart>();
             try
             {
                 List<ProposalContentByPart> byPartNumber = tdl.GetByPartNumber(this.GetPartNumberInQueryFormat(excelPartsRequest));
+
                 Dictionary<string, Task<string>> source = this.ExecuteServerCalls(excelPartsRequest, byPartNumber);
                 this.UpdateProgressText("Processing data");
                 int num = 0;
@@ -694,14 +741,14 @@ namespace Etilize.Integration
                         if (!string.IsNullOrEmpty(excelPart.SDADocName))
                         {
                             excelPart.Found = false;
-                            ProposalContentByPart part4 = new ProposalContentByPart {
+                            ProposalContentByPart part = new ProposalContentByPart {
                                 PartNumber = excelPart.PartNumber,
                                 VendorID = excelPart.VendorId,
                                 VendorName = excelPart.VendorName,
                                 Document = excelPart.Word_Doc,
                                 Optional = excelPart.Optional
                             };
-                            downloadedList.Add(part4);
+                            downloadedList.Add(part);
                             continue;
                         }
                        
@@ -1087,6 +1134,9 @@ namespace Etilize.Integration
 
             var elementList = element.Elements().Where(subelement => subelement.Name.LocalName.Contains("skus"));
             IEnumerable<XElement> rootElement = element.Elements().Where(rootSubElement => rootSubElement.Name.LocalName.Contains("datasheet"));
+            XElement MainInfo = element.Elements().Where(subelement => subelement.Name.LocalName.Contains("manufacturer")).FirstOrDefault();
+            int MfgId = 0;
+            Int32.TryParse(((MainInfo == null) ? "0" : MainInfo.Attribute("id").Value.ToString()), out MfgId);
 
             return new ProposalContentByPart { 
                 ProductPicturePath = null,
@@ -1094,7 +1144,6 @@ namespace Etilize.Integration
                 PartNumber = componentPart.PartNumber,
                 VendorName = componentPart.VendorName,
                 VendorID = this.GetVendorIdFromXML(etilizeResult),
-                //componentPart.VendorId,  
                 ProductName = this.GetMarketingInformationFromXElement(rootElement, "General Information", "Product Name"),
                 FeatureBullets = RTFParser.ConvertXMLIntoBullets(from t in element.Elements()
                     where t.Name.LocalName.Contains("featureBullets")
@@ -1102,7 +1151,9 @@ namespace Etilize.Integration
                 MarketingInfo = RTFParser.ConvertIntoParragraph(rootElement, "General Information", "Marketing Information"),
                 TechnicalInfo = RTFParser.ConvertIntoParragraph(rootElement, "General Information"),
                 MfgPartNumber = this.GetMfgPartNumberFromXElement(element.Elements(), "manufacturer", "number"),
-                MfgName = this.GetMfgPartNumberFromXElement(element.Elements(), "manufacturer", "name")
+                MfgName = this.GetMfgPartNumberFromXElement(element.Elements(), "manufacturer", "name"),
+                ProductType = GetMarketingInformationFromXElement(rootElement, "General Information", "Product Type"),
+                MfgID = MfgId
             };
         }
 

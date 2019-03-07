@@ -95,6 +95,7 @@ namespace DocumentManager
                         if (!string.IsNullOrEmpty(str3))
                         {
                             str3 = str3.Replace("&reg", "\x00ae");
+                            str3 = str3.Replace("&trade;", "™");
                             list.Add(new KeyValuePair<string, string>("b", str3));
                         }
                     }
@@ -104,6 +105,7 @@ namespace DocumentManager
                         if (!string.IsNullOrEmpty(str4))
                         {
                             str4 = str4.Replace("&reg", "\x00ae");
+                            str4 = str4.Replace("&trade;", "™");
                             list.Add(new KeyValuePair<string, string>("p", str4));
                         }
                     }
@@ -115,7 +117,6 @@ namespace DocumentManager
             }
             return list;
         }
-
 
         /// <summary>
         /// </summary>

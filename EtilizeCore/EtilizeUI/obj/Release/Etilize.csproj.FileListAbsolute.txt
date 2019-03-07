@@ -70,6 +70,10 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.exe
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.Properties.Resources.resources
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe.config
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.exe
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\GetProposalContent.pdb
@@ -89,9 +93,5 @@ C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Document
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Etilize.Data.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\Corspro.Services.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\bin\Release\ExcelDataReader.xml
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csprojResolveAssemblyReference.cache
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\EtilizeUI.EtilizeForm.resources
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.Properties.Resources.resources
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\Etilize.csproj.GenerateResource.Cache
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.exe
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\EtilizeUI\obj\Release\GetProposalContent.pdb

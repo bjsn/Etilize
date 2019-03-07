@@ -22,6 +22,8 @@ namespace Etilize.Models
         public string MfgName { get; set; }
         public string Optional { get; set; } 
         public byte[] Document { get; set; }
+        public int MfgID { get; set; }
+        public string ProductType { get; set; }
 
         public bool IsNew { get; set; }
         public bool IsUpdate { get; set; }
