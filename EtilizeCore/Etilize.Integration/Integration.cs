@@ -17,7 +17,6 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
-
 namespace Etilize.Integration
 {
     public class Integration
@@ -37,7 +36,6 @@ namespace Etilize.Integration
         private readonly EtilizeDocumentIntegration EtilizeDocumentIntegration;
         private EtilizeDocumentConfiguration documentConfiguration;
         private readonly SetupDL setupDL;
-        
 
         private readonly string EtilizeConnectionPath;
         private readonly string DIRECTORY_ROOT;
@@ -45,9 +43,7 @@ namespace Etilize.Integration
         private readonly string DownloadXMLInfo;
         private string DbPassword;
         
-        /// <summary>
-        /// </summary>
-        /// <param name="documentConfiguration"></param>
+
         public Integration(EtilizeDocumentConfiguration documentConfiguration)
         {
             string RegKey = ConfigurationManager.AppSettings["RegKey"].ToString(CultureInfo.InvariantCulture);
@@ -72,30 +68,27 @@ namespace Etilize.Integration
             this.EtilizeServices.UpdateProgressText += new Services.Services.UpdateProgressTextDelegate(this.UpdateProgressTextIntegration);
         }
         
-        /// <summary>
-        /// </summary>
         public void StartProcess()
         {
             try
             {
                 string DOCSetupFile = ConfigurationManager.AppSettings["DOCSetupFile"].ToString(CultureInfo.InvariantCulture);
-                ConfigurationManager.AppSettings["DefaultSubKeyDir"].ToString(CultureInfo.InvariantCulture);
+                string UserName = Environment.UserName;
+                string CSVSetupFile = ConfigurationManager.AppSettings["CSVSetupFile"].ToString(CultureInfo.InvariantCulture).Replace("[USERNAME]", UserName);
+
+                //update modal content
                 this.UpdateProgressText("Preparing parts");
                 this.GetEtilizeCloudID();
                 this.UpdateStep(25);
-                string userName = Environment.UserName;
-                string str = ConfigurationManager.AppSettings["CSVSetupFile"].ToString(CultureInfo.InvariantCulture).Replace("[USERNAME]", userName);
-                List<ExcelPartRequest> excelDataByColumnNameDataReader = this.ExcelManager.GetExcelDataByColumnNameDataReader(this.DIRECTORY_ROOT + str);
 
-                VendorDL rdl = new VendorDL(this.EtilizeConnectionPath)
-                {
-                    DbPwd = this.DbPassword
-                };
-
-                excelDataByColumnNameDataReader = this.FormatVendorIDInRequest(excelDataByColumnNameDataReader, rdl.GetAllVendors());
+                List<ExcelPartRequest> excelDataByColumnNameDataReader = this.ExcelManager.GetExcelDataByColumnNameDataReader(this.DIRECTORY_ROOT + CSVSetupFile);
+                VendorDL vendordl = new VendorDL(this.EtilizeConnectionPath) { DbPwd = this.DbPassword  };
+                excelDataByColumnNameDataReader = this.FormatVendorIDInRequest(excelDataByColumnNameDataReader, vendordl.GetAllVendors());
                 excelDataByColumnNameDataReader = this.GetProposalDocumentsSaved(excelDataByColumnNameDataReader);
 
+                //update modal content
                 this.UpdateStep(50);
+
                 List<ProposalContentByPart> proposalContentByParts = new List<ProposalContentByPart>();
                 if (excelDataByColumnNameDataReader.Count > 0)
                 {
@@ -104,20 +97,27 @@ namespace Etilize.Integration
 
                 //saving the founded vendors
                 List<Vendor> distinctVendor = this.GetDistinctVendor(proposalContentByParts);
-                rdl.Save(distinctVendor);
+                vendordl.Save(distinctVendor);
 
-                DOCSetupFile = DOCSetupFile.Replace("[USERNAME]", userName);
+                //update modal content
+                DOCSetupFile = DOCSetupFile.Replace("[USERNAME]", UserName);
                 string savePath = this.DIRECTORY_ROOT + DOCSetupFile;
+                
                 this.UpdateProgressSubTitle("Assembling proposal content (please wait)…");
                 this.UpdateProgressText("Processing document, this could take some minutes");
                 this.UpdateStep(75);
+
                 if (ConfigurationManager.AppSettings["UseWordDoc"].ToString(CultureInfo.InvariantCulture).ToString().ToUpper().Equals("TRUE"))
                 {
                     this.EtilizeDocumentIntegration.StarEtilizeDocAssebly(proposalContentByParts, savePath, 0, 0);
                 }
+
+                //update modal content
                 this.UpdateStep(100);
                 this.UpdateProgressText("Saving final changes");
-                this.ExcelManager.UpdateEtilizeStatusExcelDoc(this.DIRECTORY_ROOT + str, excelDataByColumnNameDataReader);
+
+                //calling exe
+                this.ExcelManager.UpdateEtilizeStatusExcelDoc(this.DIRECTORY_ROOT + CSVSetupFile, excelDataByColumnNameDataReader);
                 this.UpdateProgressText("Calling PopGen.exe");
                 Process.Start(this.DIRECTORY_ROOT + @"PropGen\PropGen.exe");
             }
@@ -133,9 +133,10 @@ namespace Etilize.Integration
         {
             if (Utilitary.CheckForInternetConnection())
             {
-                string RegKey = ConfigurationManager.AppSettings["RegKey"].ToString(CultureInfo.InvariantCulture);
                 int ClientIdInt = 0;
                 int UserIdInt = 0;
+                string RegKey = ConfigurationManager.AppSettings["RegKey"].ToString(CultureInfo.InvariantCulture);
+                
                 Int32.TryParse(Utilitary.ReadValueFromRegistry(RegKey, "ClientId"), out ClientIdInt);
                 Int32.TryParse(Utilitary.ReadValueFromRegistry(RegKey, "UserId"), out UserIdInt);
                 if (errorMessage.Length > 375)
@@ -143,15 +144,10 @@ namespace Etilize.Integration
                     errorMessage = errorMessage.Substring(0, 375) + "...";
                 }
                 new CorsProServices(Utilitary.GetSetupDLProperty(this.setupDL.GetSetupList(), "SDACloudUpdatesURL"))
-
-                    .SendErroLogMessageToCloud(UserIdInt, ClientIdInt, "Etilize error: " + errorMessage);
+                .SendErroLogMessageToCloud(UserIdInt, ClientIdInt, "Etilize error: " + errorMessage);
             }
         }
 
-        /// <summary>
-        // improve this function man
-        /// </summary>
-        /// <param name="excelPartsRequest"></param>
         public List<ProposalContentByPart> ProcessExcelPartsRequest(List<ExcelPartRequest> excelPartsRequest)
         {
             int ContentReloadDays = Int32.Parse(ConfigurationManager.AppSettings["ContentReloadDays"].ToString(CultureInfo.InvariantCulture));
@@ -260,11 +256,6 @@ namespace Etilize.Integration
             return downloadedList;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartsRequest"></param>
-        /// <param name="proposalContentByPartsSaved"></param>
-        /// <returns></returns>
         private Dictionary<string, Task<string>> ExecuteServerCalls(List<ExcelPartRequest> excelPartsRequest, List<ProposalContentByPart> proposalContentByPartsSaved) 
         {
             try
@@ -306,7 +297,6 @@ namespace Etilize.Integration
             }
         }
 
-
         private Dictionary<string, Task<string>> ExecuteServerSingleCall(ExcelPartRequest excelPartRequest, ProposalContentByPart proposalContentByPartsSaved)
         {
             Dictionary<string, Task<string>> listTest = new Dictionary<string, Task<string>>();
@@ -318,6 +308,7 @@ namespace Etilize.Integration
             }
             return listTest;
         }
+
 
         private string FormatListInRTF(IEnumerable<XElement> rootElement, string subElementName, string format = "", string specificElementName = "")
         {
@@ -345,11 +336,7 @@ namespace Etilize.Integration
             return rtf;
         }
 
-
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartRequests"></param>
-        /// <returns></returns>
+       
            private List<ExcelPartRequest> GetProposalDocumentsSaved(List<ExcelPartRequest> excelPartRequests)
         {
             List<ExcelPartRequest> list;
@@ -381,10 +368,6 @@ namespace Etilize.Integration
         }
 
 
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartRequests"></param>
-        /// <returns></returns>
         private List<string> GetQuerablePartList(List<ExcelPartRequest> excelPartRequests)
         {
             List<string> listParts = new List<string>();
@@ -406,10 +389,7 @@ namespace Etilize.Integration
             return listParts;
         }
 
-
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartRequests"></param>
+        
         private List<ExcelPartRequest> CleanExcelPartRequestList(List<ExcelPartRequest> excelPartRequests)
         {
             List<ExcelPartRequest> cleanedList = new List<ExcelPartRequest>();
@@ -431,9 +411,6 @@ namespace Etilize.Integration
         }
 
 
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartRequests"></param>
         private List<ExcelPartRequest> GetVendorIdByProductPartList(List<ExcelPartRequest> excelPartRequests, List<Vendor> vendors)
         {
             try
@@ -495,10 +472,7 @@ namespace Etilize.Integration
             return excelPartRequests;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="xml"></param>
-        /// <returns></returns>
+     
         private List<KeyValuePair<int, string>> GetVendorListFromXML(string xml)
         {
             XElement element = this.LoadXMLFromString(xml, null);
@@ -549,11 +523,7 @@ namespace Etilize.Integration
                     select x.First<Vendor>()).ToList<Vendor>();
         }
 
-
-        /// <summary>
-        /// </summary>
-        /// <param name="partsRequest"></param>
-        /// <returns></returns>
+        
         private List<Vendor> GetDistinctVendor(List<ExcelPartRequest> partsRequest)
         {
              List<Vendor> list = new List<Vendor>();
@@ -594,11 +564,7 @@ namespace Etilize.Integration
             }
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartRequests"></param>
-        /// <param name="vendors"></param>
-        /// <returns></returns>
+     
         private List<ExcelPartRequest> FormatVendorIDInRequest(List<ExcelPartRequest> excelPartRequests, List<Vendor> vendors)
         {
             foreach (ExcelPartRequest request in excelPartRequests)
@@ -615,11 +581,6 @@ namespace Etilize.Integration
             return excelPartRequests;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="etilizeResult"></param>
-        /// <param name="componentPart"></param>
-        /// <returns></returns>
         private ProposalContentByPart GetProposalContentByPartFromXML(string etilizeResult, ExcelPartRequest componentPart)
         {
             if (!etilizeResult.Contains("Error"))
@@ -681,11 +642,6 @@ namespace Etilize.Integration
             return null;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="etilizeResult"></param>
-        /// <param name="componentPart"></param>
-        /// <returns></returns>
         private XElement LoadXMLFromString(string etilizeResult, ExcelPartRequest componentPart = null)
         {
             string downloadPath = DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
@@ -710,24 +666,19 @@ namespace Etilize.Integration
             return element;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="excelPartsRequest"></param>
-        /// <returns></returns>
         public List<ProposalContentByPart> ProcessExcelPartsRequestRTF(List<ExcelPartRequest> excelPartsRequest)
         {
             string downloadPath = this.DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
-            ProposalContentByPartDL tdl = new ProposalContentByPartDL(this.EtilizeConnectionPath) {
-                DbPwd = this.DbPassword
-            };
-
+            ProposalContentByPartDL proposalContentByPartDL = new ProposalContentByPartDL(this.EtilizeConnectionPath) { DbPwd = this.DbPassword };
             List<ProposalContentByPart> downloadedList = new List<ProposalContentByPart>();
+
             try
             {
-                List<ProposalContentByPart> byPartNumber = tdl.GetByPartNumber(this.GetPartNumberInQueryFormat(excelPartsRequest));
+                List<ProposalContentByPart> byPartNumber = proposalContentByPartDL.GetByPartNumber(this.GetPartNumberInQueryFormat(excelPartsRequest));
 
                 Dictionary<string, Task<string>> source = this.ExecuteServerCalls(excelPartsRequest, byPartNumber);
                 this.UpdateProgressText("Processing data");
+
                 int num = 0;
                 using (List<ExcelPartRequest>.Enumerator enumerator = excelPartsRequest.GetEnumerator())
                 {
@@ -803,7 +754,7 @@ namespace Etilize.Integration
                     }
                 }
                 this.EtilizeServices.DownloadImageContentFromParts(downloadedList, downloadPath);
-                tdl.Save(downloadedList);
+                proposalContentByPartDL.Save(downloadedList);
             }
             catch (Exception exception1)
             {
@@ -812,12 +763,7 @@ namespace Etilize.Integration
             return downloadedList;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="rootElement"></param>
-        /// <param name="subElementName"></param>
-        /// <param name="typeNumber"></param>
-        /// <returns></returns>
+       
         private string GetMfgPartNumberFromXElement(IEnumerable<XElement> rootElement, string subElementName, string atribute)
         {
             string str = "";
@@ -832,12 +778,6 @@ namespace Etilize.Integration
             return str;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="rootElement"></param>
-        /// <param name="subElementName"></param>
-        /// <param name="typeNumber"></param>
-        /// <returns></returns>
         private string GetDescriptionFromXElement(IEnumerable<XElement> rootElement, string subElementName, string typeNumber)
         {
             string str = "";
@@ -856,11 +796,6 @@ namespace Etilize.Integration
             return str;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="rootElement"></param>
-        /// <param name="subElementName"></param>
-        /// <returns></returns>
         private string GetTechnicalInformationFromXElement(IEnumerable<XElement> rootElement, string subElementName)
         {
             string data = "";
@@ -881,12 +816,6 @@ namespace Etilize.Integration
             return data;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="rootElement"></param>
-        /// <param name="subElementName"></param>
-        /// <param name="atributeName"></param>
-        /// <returns></returns>
         private string GetMarketingInformationFromXElement(IEnumerable<XElement> rootElement, string subElementName, string atributeName)
         {
             string data = "";
@@ -908,11 +837,7 @@ namespace Etilize.Integration
             return data;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="rootElement"></param>
-        /// <param name="subElementName"></param>
-        /// <returns></returns>
+        
         private string GetFeatureBulletFromXElement(IEnumerable<XElement> rootElement, string subElementName)
         {
             string data = "";
@@ -928,13 +853,6 @@ namespace Etilize.Integration
             return data;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="rootElement"></param>
-        /// <param name="subElementName"></param>
-        /// <param name="format"></param>
-        /// <param name="specificElementName"></param>
-        /// <returns></returns>
         private string GetInfoFromXElement(IEnumerable<XElement> rootElement, string subElementName, string format ="", string specificElementName = "")
         {
             string data = "";
@@ -980,11 +898,6 @@ namespace Etilize.Integration
             return data;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="imageList"></param>
-        /// <param name="partNumber"></param>
-        /// <returns></returns>
         private string GetRecomendedImage(IEnumerable<XElement> imageList)
         {
             Dictionary<int, string> resourcesList = new Dictionary<int, string>();
@@ -1018,12 +931,7 @@ namespace Etilize.Integration
             return fileUrl;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="imageURL"></param>
-        /// <param name="folderName"></param>
-        /// <param name="imageType"></param>
-        /// <returns></returns>
+      
         private string DownloadImage(string imageURL)
         {
             string fileName = "";
@@ -1060,10 +968,6 @@ namespace Etilize.Integration
             return fileName;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="xml"></param>
-        /// <param name="partNumber"></param>
         public void DownloadXML(string xml, string partNumber)
         {
             string str = this.DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
@@ -1080,10 +984,7 @@ namespace Etilize.Integration
             System.IO.File.WriteAllText(path + "/" + str2 + ".xml", xml);
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="xml"></param>
-        /// <returns></returns>
+       
         private string RemoveXmlDefinition(string xml)
         {
             XDocument xdoc = XDocument.Parse(xml);
@@ -1092,10 +993,6 @@ namespace Etilize.Integration
             return xdoc.ToString();
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="excelParts"></param>
-        /// <returns></returns>
         private string GetPartNumberInQueryFormat(List<ExcelPartRequest> excelParts)
         {
             string str = "";
@@ -1110,11 +1007,6 @@ namespace Etilize.Integration
         }
 
 
-        /// <summary>
-        /// </summary>
-        /// <param name="etilizeResult"></param>
-        /// <param name="componentPart"></param>
-        /// <returns></returns>
         private ProposalContentByPart GetProposalContentByPartFromXMLInRTF(string etilizeResult, ExcelPartRequest componentPart)
         {
             if ((etilizeResult == null) || etilizeResult.Contains("Error"))
@@ -1157,11 +1049,6 @@ namespace Etilize.Integration
             };
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="componentsRequest"></param>
-        /// <param name="excelPartRequests"></param>
-        /// <returns></returns>
         private List<ExcelPartRequest> CleanUpComponetListToRequest(List<ComponentPart> componentsRequest, List<ExcelPartRequest> excelPartRequests )
         {
             foreach (ExcelPartRequest excelPart in excelPartRequests.ToList())
@@ -1178,17 +1065,11 @@ namespace Etilize.Integration
             return excelPartRequests;
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="text"></param>
         public void UpdateProgressTextIntegration(string text)
         {
             UpdateProgressText(text);
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="value"></param>
         private void UpdateProgressIntegration(int value)
         {
             UpdateProgress(value);

@@ -88,5 +88,16 @@ namespace EtilizeUI
             }
             return configuration;
         }
+
+        //
+        public static string GetInformationLbl(string[] parameters) 
+        {
+            string lblInformation = "";
+            if (parameters.Length >= 6) 
+            {
+                lblInformation = parameters[5];
+            }
+            return lblInformation;
+        }
     }
 }

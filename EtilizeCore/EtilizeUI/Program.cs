@@ -24,7 +24,7 @@ namespace EtilizeUI
 
             try
             {
-                using (EtilizeForm form = new EtilizeForm(Utilitary.GetDocumentConfiguration(commandLineArgs)))
+                using (EtilizeForm form = new EtilizeForm(Utilitary.GetDocumentConfiguration(commandLineArgs), "asdasd"))
                 {
                     form.ShowDialog();
                 }

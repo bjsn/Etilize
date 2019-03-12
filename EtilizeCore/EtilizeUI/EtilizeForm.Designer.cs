@@ -32,6 +32,7 @@ namespace EtilizeUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.PbSteps = new System.Windows.Forms.ProgressBar();
+            this.LblInformation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@ namespace EtilizeUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.label2.Location = new System.Drawing.Point(15, 102);
+            this.label2.Location = new System.Drawing.Point(15, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(322, 20);
             this.label2.TabIndex = 18;
@@ -58,7 +59,7 @@ namespace EtilizeUI
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.lblStatus.Location = new System.Drawing.Point(15, 151);
+            this.lblStatus.Location = new System.Drawing.Point(13, 138);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 20);
             this.lblStatus.TabIndex = 19;
@@ -67,9 +68,9 @@ namespace EtilizeUI
             // 
             this.pbStatus.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.pbStatus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.pbStatus.Location = new System.Drawing.Point(13, 120);
+            this.pbStatus.Location = new System.Drawing.Point(13, 108);
             this.pbStatus.Name = "pbStatus";
-            this.pbStatus.Size = new System.Drawing.Size(308, 28);
+            this.pbStatus.Size = new System.Drawing.Size(370, 28);
             this.pbStatus.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbStatus.TabIndex = 20;
             // 
@@ -78,7 +79,7 @@ namespace EtilizeUI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(20, 57);
+            this.label1.Location = new System.Drawing.Point(15, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 19);
             this.label1.TabIndex = 21;
@@ -89,7 +90,7 @@ namespace EtilizeUI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(102, 57);
+            this.label4.Location = new System.Drawing.Point(142, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 19);
             this.label4.TabIndex = 22;
@@ -100,7 +101,7 @@ namespace EtilizeUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(185, 57);
+            this.label5.Location = new System.Drawing.Point(255, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 19);
             this.label5.TabIndex = 23;
@@ -111,7 +112,7 @@ namespace EtilizeUI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(269, 57);
+            this.label6.Location = new System.Drawing.Point(341, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 19);
             this.label6.TabIndex = 24;
@@ -120,7 +121,7 @@ namespace EtilizeUI
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GetProposalContent.Properties.Resources.logo_resize;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 7);
+            this.pictureBox2.Location = new System.Drawing.Point(11, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(140, 38);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -131,9 +132,9 @@ namespace EtilizeUI
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(0, 180);
+            this.panel1.Location = new System.Drawing.Point(0, 185);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(344, 35);
+            this.panel1.Size = new System.Drawing.Size(401, 35);
             this.panel1.TabIndex = 16;
             // 
             // label3
@@ -141,7 +142,7 @@ namespace EtilizeUI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(67, 5);
+            this.label3.Location = new System.Drawing.Point(84, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(272, 25);
             this.label3.TabIndex = 1;
@@ -153,15 +154,26 @@ namespace EtilizeUI
             this.PbSteps.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PbSteps.Location = new System.Drawing.Point(13, 77);
             this.PbSteps.Name = "PbSteps";
-            this.PbSteps.Size = new System.Drawing.Size(308, 5);
+            this.PbSteps.Size = new System.Drawing.Size(370, 5);
             this.PbSteps.Step = 4;
             this.PbSteps.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.PbSteps.TabIndex = 27;
             // 
+            // LblInformation
+            // 
+            this.LblInformation.AutoSize = true;
+            this.LblInformation.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInformation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
+            this.LblInformation.Location = new System.Drawing.Point(14, 156);
+            this.LblInformation.Name = "LblInformation";
+            this.LblInformation.Size = new System.Drawing.Size(0, 19);
+            this.LblInformation.TabIndex = 28;
+            // 
             // EtilizeForm
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(338, 212);
+            this.ClientSize = new System.Drawing.Size(400, 220);
+            this.Controls.Add(this.LblInformation);
             this.Controls.Add(this.PbSteps);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -200,6 +212,7 @@ namespace EtilizeUI
         private Panel panel1;
         private ProgressBar PbSteps;
         private Label label3;
+        private Label LblInformation;
     }
 }
 

@@ -10,6 +10,7 @@ namespace EtilizeUI
 {
     public partial class EtilizeForm : Form
     {
+        #region FormBehaviour
         private bool Drag;
         private int MouseX;
         private int MouseY;
@@ -106,11 +107,17 @@ namespace EtilizeUI
             }
         }
         private void PanelMove_MouseUp(object sender, MouseEventArgs e) { Drag = false; }
+        #endregion
+
 
         Integration integration { get; set; }
-        public EtilizeForm(EtilizeDocumentConfiguration documentConfiguration)
+        string lblInformationString;
+
+        public EtilizeForm(EtilizeDocumentConfiguration documentConfiguration, string lblInformationString)
         {
             InitializeComponent();
+            this.lblInformationString = lblInformationString;
+
             integration = new Integration(documentConfiguration);
             integration.UpdateProgress += UpdateProgress;
             integration.UpdateProgressText += UpdateProgressText;
@@ -123,6 +130,7 @@ namespace EtilizeUI
         {
             try
             {
+                this.LblInformation.Text = this.lblInformationString;
                 backgroundWorker1.RunWorkerAsync();
             }
             catch (Exception error)

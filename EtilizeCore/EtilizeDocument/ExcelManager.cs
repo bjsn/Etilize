@@ -196,83 +196,6 @@ namespace EtilizeDocument
             return list;
         }
 
-        //public void UpdateEtilizeStatusExcelDoc(string filePath, List<ExcelPartRequest> listPartProcess)
-        //{
-        //    try
-        //    {
-        //        Application o = (Application) Activator.CreateInstance(Marshal.GetTypeFromCLSID(new Guid("00024500-0000-0000-C000-000000000046")));
-        //        Workbook workbook = o.Workbooks.Open(filePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-        //        Sheets worksheets = workbook.Worksheets;
-        //        Worksheet worksheet = (Worksheet) worksheets.get_Item(1);
-        //        List<int> list = new List<int>();
-        //        int item = 1;
-        //        foreach (Microsoft.Office.Interop.Excel.Range range in worksheet.UsedRange.Columns)
-        //        {
-        //            string str = (string) (range.Cells[1, 1] as Microsoft.Office.Interop.Excel.Range).get_Value(Missing.Value);
-        //            string[] columnNames = this.columnNames;
-        //            int index = 0;
-        //            while (true)
-        //            {
-        //                if (index >= columnNames.Length)
-        //                {
-        //                    item++;
-        //                    break;
-        //                }
-        //                string str2 = columnNames[index];
-        //                if (str.ToString().Equals(str2))
-        //                {
-        //                    list.Add(item);
-        //                }
-        //                index++;
-        //            }
-        //        }
-        //        if (list.Count <= this.columnNames.Length)
-        //        {
-        //            foreach (Microsoft.Office.Interop.Excel.Range range2 in worksheet.UsedRange.Rows)
-        //            {
-        //                try
-        //                {
-        //                    Func<ExcelPartRequest, bool> predicate = null;
-        //                    string PartNumber = "";
-        //                    try
-        //                    {
-        //                        if (<UpdateEtilizeStatusExcelDoc>o__SiteContainer13.<>p__Site17 == null)
-        //                        {
-        //                            CSharpArgumentInfo[] argumentInfo = new CSharpArgumentInfo[] { CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.IsStaticType | CSharpArgumentInfoFlags.UseCompileTimeType, null), CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, null) };
-        //                            <UpdateEtilizeStatusExcelDoc>o__SiteContainer13.<>p__Site17 = CallSite<Func<CallSite, Type, object, object>>.Create(Microsoft.CSharp.RuntimeBinder.Binder.InvokeMember(CSharpBinderFlags.None, "ToString", null, typeof(ExcelManager), argumentInfo));
-        //                        }
-        //                        PartNumber = (string) <UpdateEtilizeStatusExcelDoc>o__SiteContainer13.<>p__Site17.Target(<UpdateEtilizeStatusExcelDoc>o__SiteContainer13.<>p__Site17, typeof(Convert), (range2.Cells[list[0], Missing.Value] as Microsoft.Office.Interop.Excel.Range).get_Value(Missing.Value));
-        //                        if (predicate == null)
-        //                        {
-        //                            predicate = x => x.PartNumber.Equals(PartNumber);
-        //                        }
-        //                        ExcelPartRequest request = (from x in listPartProcess.Where<ExcelPartRequest>(predicate) select x).FirstOrDefault<ExcelPartRequest>();
-        //                        if ((request != null) && request.Found)
-        //                        {
-        //                            (range2.Cells[list[6], Missing.Value] as Microsoft.Office.Interop.Excel.Range).set_Value(Missing.Value, "Etilize");
-        //                        }
-        //                    }
-        //                    catch (Exception)
-        //                    {
-        //                    }
-        //                }
-        //                catch (Exception exception1)
-        //                {
-        //                    throw new Exception(exception1.Message);
-        //                }
-        //            }
-        //        }
-        //        o.DisplayAlerts = false;
-        //        workbook.SaveAs(filePath, XlFileFormat.xlOpenXMLWorkbook, Type.Missing, Type.Missing, false, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing, Missing.Value, Missing.Value);
-        //        workbook.Close(false, Missing.Value, Missing.Value);
-        //        o.Quit();
-        //        Marshal.ReleaseComObject(o);
-        //    }
-        //    catch (Exception exception3)
-        //    {
-        //        throw new Exception(exception3.Message);
-        //    }
-        //}
 
         public void UpdateEtilizeStatusExcelDoc(string filePath, List<ExcelPartRequest> listPartProcess) 
         {
@@ -308,11 +231,11 @@ namespace EtilizeDocument
                     {
                         try
                         {
-                            string PartNumber = "";
+                            string partNumber = "";
                             try
                             {
-                                PartNumber = Convert.ToString((row.Cells[rowPositions[0]] as Range).Value);
-                                var part = listPartProcess.Where(x => x.PartNumber.Equals(PartNumber)).Select(x => x).FirstOrDefault();
+                                partNumber = Convert.ToString((row.Cells[rowPositions[0]] as Range).Value);
+                                var part = listPartProcess.Where(x => x.PartNumber.Equals(partNumber)).Select(x => x).FirstOrDefault();
                                 if (part != null) 
                                 {
                                     bool foundInEtilize = part.Found;
