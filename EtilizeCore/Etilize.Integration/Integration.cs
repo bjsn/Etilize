@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using System.Drawing;
 
 namespace Etilize.Integration
 {
@@ -42,7 +43,6 @@ namespace Etilize.Integration
         private readonly string DIRECTORY_COMPANY;
         private readonly string DownloadXMLInfo;
         private string DbPassword;
-        
 
         public Integration(EtilizeDocumentConfiguration documentConfiguration)
         {
@@ -68,6 +68,7 @@ namespace Etilize.Integration
             this.EtilizeServices.UpdateProgressText += new Services.Services.UpdateProgressTextDelegate(this.UpdateProgressTextIntegration);
         }
         
+
         public void StartProcess()
         {
             try
@@ -102,7 +103,6 @@ namespace Etilize.Integration
                 //update modal content
                 DOCSetupFile = DOCSetupFile.Replace("[USERNAME]", UserName);
                 string savePath = this.DIRECTORY_ROOT + DOCSetupFile;
-                
                 this.UpdateProgressSubTitle("Assembling proposal content (please wait)…");
                 this.UpdateProgressText("Processing document, this could take some minutes");
                 this.UpdateStep(75);
@@ -147,6 +147,7 @@ namespace Etilize.Integration
                 .SendErroLogMessageToCloud(UserIdInt, ClientIdInt, "Etilize error: " + errorMessage);
             }
         }
+
 
         public List<ProposalContentByPart> ProcessExcelPartsRequest(List<ExcelPartRequest> excelPartsRequest)
         {
@@ -245,7 +246,6 @@ namespace Etilize.Integration
 
                 //download all images
                 EtilizeServices.DownloadImageContentFromParts(downloadedList, downloadPath);
-
                 //save content
                 contentByPartDL.Save(downloadedList);
             }
@@ -255,6 +255,7 @@ namespace Etilize.Integration
             }
             return downloadedList;
         }
+
 
         private Dictionary<string, Task<string>> ExecuteServerCalls(List<ExcelPartRequest> excelPartsRequest, List<ProposalContentByPart> proposalContentByPartsSaved) 
         {
@@ -297,6 +298,7 @@ namespace Etilize.Integration
             }
         }
 
+
         private Dictionary<string, Task<string>> ExecuteServerSingleCall(ExcelPartRequest excelPartRequest, ProposalContentByPart proposalContentByPartsSaved)
         {
             Dictionary<string, Task<string>> listTest = new Dictionary<string, Task<string>>();
@@ -332,12 +334,11 @@ namespace Etilize.Integration
             }
             box.Text = builder.ToString();
             rtf = box.Rtf;
-            Console.WriteLine(rtf);
             return rtf;
         }
 
        
-           private List<ExcelPartRequest> GetProposalDocumentsSaved(List<ExcelPartRequest> excelPartRequests)
+        private List<ExcelPartRequest> GetProposalDocumentsSaved(List<ExcelPartRequest> excelPartRequests)
         {
             List<ExcelPartRequest> list;
             try
@@ -441,13 +442,10 @@ namespace Etilize.Integration
                                 xml = this.RemoveXmlDefinition(xml);
                                 foreach (KeyValuePair<int, string> pair in this.GetVendorListFromXML(xml))
                                 {
-                                    //if (pair.Value.ToUpper().Contains(request.VendorName.ToUpper()))
-                                    //{
-                                        request.VendorId = pair.Key;
-                                        vendor.VendorID = pair.Key;
-                                        vendorId = request.VendorId;
-                                        break;
-                                    //}
+                                    request.VendorId = pair.Key;
+                                    vendor.VendorID = pair.Key;
+                                    vendorId = request.VendorId;
+                                    break;
                                 }
                                 if (vendorId != 0)
                                 {
@@ -477,22 +475,21 @@ namespace Etilize.Integration
         {
             XElement element = this.LoadXMLFromString(xml, null);
             List<KeyValuePair<int, string>> list = new List<KeyValuePair<int, string>>();
-          
-                try
-                {
-                    IEnumerable<XElement> VendorList = from t in element.Elements()
-                                                      where t.Name.LocalName.Contains("manufacturer")
-                                                      select t;
+            try
+            {
+                IEnumerable<XElement> VendorList = from t in element.Elements()
+                                                   where t.Name.LocalName.Contains("manufacturer")
+                                                   select t;
 
-                    foreach (XElement vendor in VendorList) 
-                    {
-                        list.Add(new KeyValuePair<int, string>(int.Parse(vendor.Attribute("id").Value), vendor.Attribute("name").Value));
-                    }
-                }
-                catch (Exception exception1)
+                foreach (XElement vendor in VendorList) 
                 {
-                    throw new Exception(exception1.Message);
+                    list.Add(new KeyValuePair<int, string>(int.Parse(vendor.Attribute("id").Value), vendor.Attribute("name").Value));
                 }
+            }
+            catch (Exception exception1)
+            {
+                throw new Exception(exception1.Message);
+            }
             return list;
         }
 
@@ -666,17 +663,19 @@ namespace Etilize.Integration
             return element;
         }
 
+
         public List<ProposalContentByPart> ProcessExcelPartsRequestRTF(List<ExcelPartRequest> excelPartsRequest)
         {
             string downloadPath = this.DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
             ProposalContentByPartDL proposalContentByPartDL = new ProposalContentByPartDL(this.EtilizeConnectionPath) { DbPwd = this.DbPassword };
-            List<ProposalContentByPart> downloadedList = new List<ProposalContentByPart>();
+
+            List<ProposalContentByPart> proposalContentByPartToProcess = new List<ProposalContentByPart>();
 
             try
             {
                 List<ProposalContentByPart> byPartNumber = proposalContentByPartDL.GetByPartNumber(this.GetPartNumberInQueryFormat(excelPartsRequest));
-
                 Dictionary<string, Task<string>> source = this.ExecuteServerCalls(excelPartsRequest, byPartNumber);
+                
                 this.UpdateProgressText("Processing data");
 
                 int num = 0;
@@ -699,7 +698,7 @@ namespace Etilize.Integration
                                 Document = excelPart.Word_Doc,
                                 Optional = excelPart.Optional
                             };
-                            downloadedList.Add(part);
+                            proposalContentByPartToProcess.Add(part);
                             continue;
                         }
                        
@@ -712,7 +711,7 @@ namespace Etilize.Integration
                             //if the ID is equal to 0, update the ID from the Etilize XML
                             if (item.VendorID == 0) 
                             {
-                                int currentVendorId = downloadedList.Where(x => x.VendorName.Equals(excelPart.VendorName)).Select(x => x.VendorID).FirstOrDefault();
+                                int currentVendorId = proposalContentByPartToProcess.Where(x => x.VendorName.Equals(excelPart.VendorName)).Select(x => x.VendorID).FirstOrDefault();
                                 if (currentVendorId == 0)
                                 {
                                     Dictionary<string, Task<string>> singleSource = this.ExecuteServerSingleCall(excelPart, item);
@@ -725,13 +724,12 @@ namespace Etilize.Integration
                                     item.VendorID = currentVendorId;
                                 }
                             }
-                            downloadedList.Add(item);
+                            proposalContentByPartToProcess.Add(item);
                         }
                         else
                         {
                             if (Utilitary.CheckForInternetConnection())
                             {
-                                
                                 Func<KeyValuePair<string, Task<string>>, bool> func2 = x => x.Key.Equals(excelPart.PartNumber);
                                 string etilizeResult = (from x in source.Where<KeyValuePair<string, Task<string>>>(func2) select x.Value.Result).FirstOrDefault<string>();
                                 ProposalContentByPart proposalContentByPartFromXMLInRTF = this.GetProposalContentByPartFromXMLInRTF(etilizeResult, excelPart);
@@ -746,23 +744,78 @@ namespace Etilize.Integration
                                     {
                                         excelPart.Found = true;
                                         proposalContentByPartFromXMLInRTF.IsNew = true;
-                                        downloadedList.Add(proposalContentByPartFromXMLInRTF);
+                                        proposalContentByPartToProcess.Add(proposalContentByPartFromXMLInRTF);
                                     }
                                 }
                             }
                         }
+
+                        if (excelPart.Found == false) 
+                        {
+                            //get the proposal part in the admin if does not exist in etilize or in the cloud
+                            ProposalContentByPart proposalPartAdmin = GetExcelPartRequestFromAdminDatabase(excelPart);
+                            if (proposalPartAdmin != null) 
+                            {
+                                proposalContentByPartToProcess.Add(proposalPartAdmin);
+                            }
+                        }
                     }
                 }
-                this.EtilizeServices.DownloadImageContentFromParts(downloadedList, downloadPath);
-                proposalContentByPartDL.Save(downloadedList);
+                this.EtilizeServices.DownloadImageContentFromParts(proposalContentByPartToProcess, downloadPath);
+                proposalContentByPartDL.Save(proposalContentByPartToProcess);
             }
             catch (Exception exception1)
             {
                 throw new Exception(exception1.Message);
             }
-            return downloadedList;
+            return proposalContentByPartToProcess;
         }
 
+
+        private ProposalContentByPart GetExcelPartRequestFromAdminDatabase(ExcelPartRequest excelPart) 
+        {
+            string pqdbPath = this.DIRECTORY_COMPANY + ConfigurationManager.AppSettings["PQDB_Route"].ToString(CultureInfo.InvariantCulture);
+            ProposalContentByPartDL proposalContentByPartDL = new ProposalContentByPartDL(pqdbPath) { DbPwd = this.DbPassword };
+
+            if (excelPart != null) 
+            {
+                ProposalContentByPart proposalContentPart = proposalContentByPartDL
+                                                            .GetByPartNumberAdminDB(excelPart.PartNumber)
+                                                            
+                                                            .FirstOrDefault();
+                if (proposalContentPart != null) 
+                {
+                    proposalContentPart.ProductPicturePath = DownloadByteArrayImage(excelPart.PartNumber, proposalContentPart.Document);
+                    proposalContentPart.Document = null;
+                    return proposalContentPart;
+                }
+            }
+            return null;
+        }
+
+
+        private string DownloadByteArrayImage(string partNumber, byte[] savedImage) 
+        {
+            string downloadPath = DIRECTORY_ROOT + ConfigurationManager.AppSettings["SaveFilesPath"].ToString(CultureInfo.InvariantCulture);
+
+            string imagePath = "";
+            try
+            {
+                if (savedImage != null) 
+                {
+                    byte[] imageArray = savedImage;
+                    MemoryStream ms = new MemoryStream(imageArray);
+                    Image image = Image.FromStream(ms);
+                    imagePath = downloadPath + partNumber + ".png";
+                    image.Save(imagePath, System.Drawing.Imaging.ImageFormat.Png);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return imagePath;
+        }
        
         private string GetMfgPartNumberFromXElement(IEnumerable<XElement> rootElement, string subElementName, string atribute)
         {

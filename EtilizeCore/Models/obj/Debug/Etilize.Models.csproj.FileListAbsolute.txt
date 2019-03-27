@@ -15,5 +15,6 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Models\obj\Debug\Etilize.Models.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\bin\Debug\Etilize.Models.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\bin\Debug\Etilize.Models.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\obj\Debug\Etilize.Models.csprojResolveAssemblyReference.cache
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\obj\Debug\Etilize.Models.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\obj\Debug\Etilize.Models.pdb

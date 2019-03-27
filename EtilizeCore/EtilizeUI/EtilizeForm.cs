@@ -109,7 +109,6 @@ namespace EtilizeUI
         private void PanelMove_MouseUp(object sender, MouseEventArgs e) { Drag = false; }
         #endregion
 
-
         Integration integration { get; set; }
         string lblInformationString;
 

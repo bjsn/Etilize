@@ -14,49 +14,6 @@
             base.ConnectionValue = connectionValue;
         }
 
-        private List<ProposalContentByPart> Convert(DataTable dataTable)
-        {
-            List<ProposalContentByPart> list = new List<ProposalContentByPart>();
-            if (dataTable.Rows.Count > 0)
-            {
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    ProposalContentByPart item = new ProposalContentByPart {
-                        PartNumber = (row["PartNumber"] != DBNull.Value) ? row["PartNumber"].ToString() : string.Empty,
-                        VendorName = (row["VendorName"] != DBNull.Value) ? row["VendorName"].ToString() : string.Empty,
-                        DownloadDT = (row["DownloadDT"] != DBNull.Value) ? DateTime.Parse(row["DownloadDT"].ToString()) : DateTime.MinValue,
-                        ProductName = (row["ProductName"] != DBNull.Value) ? row["ProductName"].ToString() : string.Empty,
-                        MarketingInfo = (row["MarketingInfo"] != DBNull.Value) ? row["MarketingInfo"].ToString() : string.Empty,
-                        FeatureBullets = (row["FeatureBullets"] != DBNull.Value) ? row["FeatureBullets"].ToString() : string.Empty,
-                        TechnicalInfo = (row["TechnicalInfo"] != DBNull.Value) ? row["TechnicalInfo"].ToString() : string.Empty,
-                        ProductPicturePath = (row["ProductPicturePath"] != DBNull.Value) ? row["ProductPicturePath"].ToString() : string.Empty,
-                        ProductPictureURL = (row["ProductPictureURL"] != DBNull.Value) ? row["ProductPictureURL"].ToString() : string.Empty,
-                        MfgPartNumber = (row["MfgPartNumber"] != DBNull.Value) ? row["MfgPartNumber"].ToString() : string.Empty,
-                        MfgName = (row["MfgName"] != DBNull.Value) ? row["MfgName"].ToString() : string.Empty,
-                        MfgID = (row["MfgID"] != DBNull.Value) ? Int32.Parse(row["MfgID"].ToString()) : 0,
-                        ProductType = (row["ProductType"] != DBNull.Value) ? row["ProductType"].ToString() : string.Empty
-                    };
-                    list.Add(item);
-                }
-            }
-            return list;
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Edit(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<ProposalContentByPart> GetByPartNumber(string partNumbers)
         {
             List<ProposalContentByPart> list;
@@ -66,7 +23,8 @@
                 DataTable dataTable = new DataTable();
                 new OleDbDataAdapter("SELECT PartNumber, VendorName, DownloadDT, ProductName, FeatureBullets, MarketingInfo, TechnicalInfo, ProductPicturePath, ProductPictureURL, MfgPartNumber, MfgName, MfgID, ProductType, MfgID, ProductType "
                                     +"FROM ProposalContentByPart " 
-                                    +"WHERE PartNumber IN(" + partNumbers + ");", base.DbConnection).Fill(dataTable);
+                                    +"WHERE PartNumber IN(" + partNumbers + ");", base.DbConnection)
+                                    .Fill(dataTable);
                 base.CloseDbConnection();
                 list = this.Convert(dataTable);
             }
@@ -77,9 +35,27 @@
             return list;
         }
 
-        public void Save()
+        //call just if it is using the PQDB database
+        public List<ProposalContentByPart> GetByPartNumberAdminDB(string partNumbers)
         {
-            throw new NotImplementedException();
+            List<ProposalContentByPart> list;
+            try
+            {
+                base.OpenDbConnection();
+                DataTable dataTable = new DataTable();
+                new OleDbDataAdapter("SELECT PartNumber, VendorName, ProductName, FeatureBullets, MarketingInfo, TechnicalInfo, ProductPicture "
+                                    + "FROM ProposalContentByPart "
+                                    + "WHERE PartNumber = '" + partNumbers + "';", 
+                                    base.DbConnection)
+                                    .Fill(dataTable);
+                base.CloseDbConnection();
+                list = this.Convert(dataTable);
+            }
+            catch (Exception exception1)
+            {
+                throw new Exception(exception1.Message);
+            }
+            return list;
         }
 
         private void Save(ProposalContentByPart proposalContentByPart)
@@ -169,6 +145,62 @@
             {
                 throw new Exception(exception1.Message);
             }
+        }
+
+        private List<ProposalContentByPart> Convert(DataTable dataTable)
+        {
+            List<ProposalContentByPart> list = new List<ProposalContentByPart>();
+            if (dataTable.Rows.Count > 0)
+            {
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if (row.Table.Columns.Contains("Document")) 
+                    {
+                        var sasd = "12354"; 
+                    }
+
+                    ProposalContentByPart item = new ProposalContentByPart
+                    {
+                        PartNumber = (row["PartNumber"] != DBNull.Value) ? row["PartNumber"].ToString() : string.Empty,
+                        VendorName = (row["VendorName"] != DBNull.Value) ? row["VendorName"].ToString() : string.Empty,
+                        ProductName = (row["ProductName"] != DBNull.Value) ? row["ProductName"].ToString() : string.Empty,
+                        MarketingInfo = (row["MarketingInfo"] != DBNull.Value) ? row["MarketingInfo"].ToString() : string.Empty,
+                        FeatureBullets = (row["FeatureBullets"] != DBNull.Value) ? row["FeatureBullets"].ToString() : string.Empty,
+                        TechnicalInfo = (row["TechnicalInfo"] != DBNull.Value) ? row["TechnicalInfo"].ToString() : string.Empty,
+
+                        DownloadDT = row.Table.Columns.Contains("DownloadDT") ? ((row["DownloadDT"] != DBNull.Value) ? DateTime.Parse(row["DownloadDT"].ToString()) : DateTime.MinValue) : DateTime.MinValue,
+                        ProductPicturePath = row.Table.Columns.Contains("ProductPicturePath") ? ((row["ProductPicturePath"] != DBNull.Value) ? row["ProductPicturePath"].ToString() : string.Empty) : string.Empty,
+                        ProductPictureURL = row.Table.Columns.Contains("ProductPictureURL") ? ((row["ProductPictureURL"] != DBNull.Value) ? row["ProductPictureURL"].ToString() : string.Empty) : string.Empty,
+                        MfgPartNumber = row.Table.Columns.Contains("MfgPartNumber") ? ((row["MfgPartNumber"] != DBNull.Value) ? row["MfgPartNumber"].ToString() : string.Empty) : string.Empty,
+                        MfgName = row.Table.Columns.Contains("MfgName") ? ((row["MfgName"] != DBNull.Value) ? row["MfgName"].ToString() : string.Empty) : string.Empty,
+                        MfgID = row.Table.Columns.Contains("MfgID") ? ((row["MfgID"] != DBNull.Value) ? Int32.Parse(row["MfgID"].ToString()) : 0) : 0,
+                        ProductType = row.Table.Columns.Contains("ProductType") ? ((row["ProductType"] != DBNull.Value) ? row["ProductType"].ToString() : string.Empty) : string.Empty,
+                        Document = row.Table.Columns.Contains("ProductPicture") ? ((row["ProductPicture"] != DBNull.Value) ? ((byte[])row["ProductPicture"]) : null) : null
+                    };
+                    list.Add(item);
+                }
+            }
+            return list;
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Edit(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
         }
     }
 }

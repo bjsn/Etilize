@@ -18,9 +18,9 @@ namespace DocumentManager
         public Application winword { get; set; }
         public string savedPath { get; set; }
         public string fileName { get; set; }
-
+        public bool UseNormalStyleForBullets { get; set; }
         //base constructor
-        public WordDocument()  { }
+        public WordDocument() { }
 
         //override
         public override void Default() { }
@@ -36,8 +36,7 @@ namespace DocumentManager
             winword = new Application
             {
                 //Set status for word application is to be visible or not.
-                Visible = false,
-                
+                Visible = false
             };
             return winword;
         }
@@ -52,7 +51,17 @@ namespace DocumentManager
 
             //Create a new document
             document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+            SetDefaultBulletStyle(winword);
             return document;
+        }
+
+        private void SetDefaultBulletStyle(Application winword) 
+        {
+            UseNormalStyleForBullets = winword.Options.UseNormalStyleForList;
+            if (!UseNormalStyleForBullets) 
+            {
+                winword.Options.UseNormalStyleForList = true;
+            }
         }
 
         /// <summary>
@@ -85,6 +94,7 @@ namespace DocumentManager
         public void SaveAndClose(string path, string name)
         {
             SaveAs(path, name);
+            if (winword.Options.UseNormalStyleForList)
             Close();
         }
 
@@ -93,10 +103,15 @@ namespace DocumentManager
         /// </summary>
         public void Close()
         {
+            if (!UseNormalStyleForBullets) 
+            {
+                winword.Options.UseNormalStyleForList = false;
+            }
             document.Close(ref missing, ref missing, ref missing);
             document = null;
             winword.Quit(ref missing, ref missing, ref missing);
             winword = null;
         }
+
     }
 }

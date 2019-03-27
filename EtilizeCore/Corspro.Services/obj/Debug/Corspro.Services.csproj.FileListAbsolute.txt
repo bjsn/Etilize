@@ -12,5 +12,6 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\bin\Debug\Corspro.Services.dll.config
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\bin\Debug\Corspro.Services.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\bin\Debug\Corspro.Services.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\obj\Debug\Corspro.Services.csprojResolveAssemblyReference.cache
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\obj\Debug\Corspro.Services.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\obj\Debug\Corspro.Services.pdb

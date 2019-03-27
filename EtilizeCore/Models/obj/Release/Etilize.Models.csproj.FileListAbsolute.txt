@@ -15,4 +15,3 @@ C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\bin\Release\Etilize.Models.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\bin\Release\Etilize.Models.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.pdb
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\Models\obj\Release\Etilize.Models.csprojResolveAssemblyReference.cache

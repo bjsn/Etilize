@@ -17,14 +17,27 @@ namespace EtilizeUI
             Application.SetCompatibleTextRenderingDefault(false);
             AppDomain currentDomain = AppDomain.CurrentDomain;
             string[] commandLineArgs = Environment.GetCommandLineArgs();
+
+            #if DEBUG  
+            //commandLineArgs = new string[9];
+            //commandLineArgs[0] = "";
+            //commandLineArgs[1] = "ExcludeIfNoPic: False;";
+            //commandLineArgs[2] = "Picture: False;";
+            //commandLineArgs[3] = "Benefits: True;";
+            //commandLineArgs[4] = "MarketingInfo: True;";
+            //commandLineArgs[5] = "TechInfo:False;";
+            //commandLineArgs[6] = "[the proposal output process will ";
+            //commandLineArgs[7] = "continue using only";
+            //commandLineArgs[8] = "already-downloaded or user-added content]";
+            #endif
+
             if (!Utilitary.CheckForInternetConnection())
             {
                 MessageBox.Show("The proposal output process will continue using only already-downloaded or user-added content", "Internet access is not available", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
-
             try
             {
-                using (EtilizeForm form = new EtilizeForm(Utilitary.GetDocumentConfiguration(commandLineArgs), "asdasd"))
+                using (EtilizeForm form = new EtilizeForm(Utilitary.GetDocumentConfiguration(commandLineArgs), Utilitary.GetInformationLbl(commandLineArgs)))
                 {
                     form.ShowDialog();
                 }
@@ -51,5 +64,6 @@ namespace EtilizeUI
         {
             Application.Exit();
         }
+
     }
 }

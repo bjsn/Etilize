@@ -15,4 +15,3 @@ C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\bin\Release\Corspro.S
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\bin\Release\Corspro.Services.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\obj\Release\Corspro.Services.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\obj\Release\Corspro.Services.pdb
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\Corspro.Services\obj\Release\Corspro.Services.csprojResolveAssemblyReference.cache

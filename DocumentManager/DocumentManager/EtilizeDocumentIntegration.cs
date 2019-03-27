@@ -71,11 +71,11 @@ namespace DocumentManager
             };
             string text = box.Text;
             int num = 0;
+            int index = 0;
+            int num5 = 0;
             int startIndex = 0;
             string str2 = "\n";
             int length = str2.Length;
-            int index = 0;
-            int num5 = 0;
             while (num5 < text.Length)
             {
                 try
@@ -284,6 +284,8 @@ namespace DocumentManager
                 throw new Exception(e.Message);
             }
         }
+
+
 
         public static string SaveToTemporaryFile(string html)
         {

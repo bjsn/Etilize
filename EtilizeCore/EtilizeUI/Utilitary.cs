@@ -89,15 +89,104 @@ namespace EtilizeUI
             return configuration;
         }
 
-        //
+        /// <summary>
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public static string GetInformationLbl(string[] parameters) 
         {
             string lblInformation = "";
-            if (parameters.Length >= 6) 
+            if (parameters.Length >= 7) 
             {
-                lblInformation = parameters[5];
+                lblInformation = parameters[6];
             }
-            return lblInformation;
+            parameters = ClearParameters(parameters);
+            if (parameters.Length >= 1) 
+            {
+                lblInformation = parameters[0].ToString();
+            }
+            return SplitString(lblInformation, 55);
         }
+
+        /// <summary>
+        /// split the string in small parts saving the words
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="lettersByLine"></param>
+        /// <returns></returns>
+        private static string  SplitString(string text, int lettersByLine) 
+        {
+            string finalString = "";
+            try
+            {
+                if (text.Length <= lettersByLine)
+                {
+                    return text;
+                }
+                else 
+                {
+                    string[] splitedString = text.Split(' ', '\t');
+                    int size = 0;
+                    int lastCutIndex = 0;
+                    foreach (var word in splitedString) 
+                    {
+                        if (!string.IsNullOrEmpty(word)) 
+                        {
+                            if (size >= lettersByLine) 
+                            {
+                                finalString += Environment.NewLine;
+                                lastCutIndex = finalString.Length;
+                            }
+                            size = finalString.Length - lastCutIndex;
+                            finalString += word + " ";
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {}
+            return finalString;
+        }
+
+
+        public static string[] ClearParameters(string[] parameters)
+        {
+            List<string> cleanParameterList = new List<string>();
+            if (parameters.Length > 1)
+            {
+                string parameter = "";
+                bool buildPath = false;
+                for (int i = 6; i < parameters.Length; i++)
+                {
+                    if (!String.IsNullOrEmpty(parameters[i]))
+                    {
+                        if (parameters[i].StartsWith("["))
+                        {
+                            buildPath = true;
+                        }
+
+                        if (buildPath)
+                        {
+                            parameter += parameters[i].ToString() + ((parameters[i].EndsWith("]")) ? "" : " ");
+                        }
+
+                        if (parameters[i].EndsWith("]"))
+                        {
+                            buildPath = false;
+                            parameter = parameter.Replace("[", "");
+                            parameter = parameter.Replace("]", "");
+                            cleanParameterList.Add(parameter);
+                            parameter = "";
+                        }
+                        else if (!buildPath)
+                        {
+                            cleanParameterList.Add(parameters[i]);
+                        }
+                    }
+                }
+            }
+            return cleanParameterList.ToArray();
+        }
+
     }
 }
