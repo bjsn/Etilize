@@ -58,7 +58,6 @@ C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\Eti
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.dll
 C:\Users\user\Desktop\Byron\Repository\etilize-master\etilize-master\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.pdb
-C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.csprojResolveAssemblyReference.cache
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Integration.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Integration.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Data.dll
@@ -75,5 +74,6 @@ C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etiliz
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Etilize.Data.pdb
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\ExcelDataReader.xml
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\bin\Release\Corspro.Services.pdb
+C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.csprojResolveAssemblyReference.cache
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.dll
 C:\Byron\CorsPro_code\Etilize\EtilizeCore\Etilize.Integration\obj\Release\Etilize.Integration.pdb

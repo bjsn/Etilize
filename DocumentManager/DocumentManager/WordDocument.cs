@@ -45,12 +45,19 @@ namespace DocumentManager
         /// </summary>
         /// <param name="winword"></param>
         /// <returns></returns>
-        public Document New(Application winword)
+        public Document New(Application winword, string wordTemplate)
         {
-           object missing = System.Reflection.Missing.Value;
+            object missing = System.Reflection.Missing.Value;
 
             //Create a new document
-            document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+            if (string.IsNullOrEmpty(wordTemplate))
+            {
+                document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+            }
+            else 
+            {
+                document = winword.Documents.Add(wordTemplate, ref missing, ref missing, ref missing);
+            }
             SetDefaultBulletStyle(winword);
             return document;
         }

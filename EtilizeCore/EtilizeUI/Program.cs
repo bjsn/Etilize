@@ -19,17 +19,16 @@ namespace EtilizeUI
             string[] commandLineArgs = Environment.GetCommandLineArgs();
 
             #if DEBUG  
-            //commandLineArgs = new string[9];
+            //commandLineArgs = new string[7];
             //commandLineArgs[0] = "";
-            //commandLineArgs[1] = "ExcludeIfNoPic: False;";
-            //commandLineArgs[2] = "Picture: False;";
-            //commandLineArgs[3] = "Benefits: True;";
-            //commandLineArgs[4] = "MarketingInfo: True;";
+            //commandLineArgs[1] = "ExcludeIfNoPic:False;";
+            //commandLineArgs[2] = "Picture:True;" ;
+            //commandLineArgs[3] = "Benefits:True;";
+            //commandLineArgs[4] = "MarketingInfo:True;";
             //commandLineArgs[5] = "TechInfo:False;";
-            //commandLineArgs[6] = "[the proposal output process will ";
-            //commandLineArgs[7] = "continue using only";
-            //commandLineArgs[8] = "already-downloaded or user-added content]";
+            //commandLineArgs[6] = "[test]";
             #endif
+
 
             if (!Utilitary.CheckForInternetConnection())
             {

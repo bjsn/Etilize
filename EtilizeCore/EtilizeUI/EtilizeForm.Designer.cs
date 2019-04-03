@@ -132,7 +132,7 @@ namespace EtilizeUI
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(198)))));
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(0, 193);
+            this.panel1.Location = new System.Drawing.Point(0, 213);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(401, 35);
             this.panel1.TabIndex = 16;
@@ -172,7 +172,7 @@ namespace EtilizeUI
             // EtilizeForm
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(400, 229);
+            this.ClientSize = new System.Drawing.Size(400, 248);
             this.Controls.Add(this.LblInformation);
             this.Controls.Add(this.PbSteps);
             this.Controls.Add(this.panel1);

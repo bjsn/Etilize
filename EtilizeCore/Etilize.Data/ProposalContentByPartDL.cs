@@ -154,11 +154,6 @@
             {
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    if (row.Table.Columns.Contains("Document")) 
-                    {
-                        var sasd = "12354"; 
-                    }
-
                     ProposalContentByPart item = new ProposalContentByPart
                     {
                         PartNumber = (row["PartNumber"] != DBNull.Value) ? row["PartNumber"].ToString() : string.Empty,

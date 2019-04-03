@@ -90,22 +90,32 @@ namespace EtilizeUI
         }
 
         /// <summary>
+        /// get the text in the middle of the brakets
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
         public static string GetInformationLbl(string[] parameters) 
         {
-            string lblInformation = "";
-            if (parameters.Length >= 7) 
+            try 
             {
-                lblInformation = parameters[6];
+                string fullString = String.Join(" ", parameters);
+                string output = fullString.Split('[', ']')[1];
+                return SplitString(output, 53);
             }
-            parameters = ClearParameters(parameters);
-            if (parameters.Length >= 1) 
-            {
-                lblInformation = parameters[0].ToString();
-            }
-            return SplitString(lblInformation, 55);
+            catch(Exception e){}
+            return "";
+
+            //string lblInformation = "";
+            //if (parameters.Length >= 7) 
+            //{
+            //    lblInformation = parameters[6];
+            //}
+            //parameters = ClearParameters(parameters);
+            //if (parameters.Length >= 1) 
+            //{
+            //    lblInformation = parameters[0].ToString();
+            //}
+            //return SplitString(lblInformation, 53);
         }
 
         /// <summary>
@@ -119,26 +129,29 @@ namespace EtilizeUI
             string finalString = "";
             try
             {
-                if (text.Length <= lettersByLine)
+                if (!string.IsNullOrEmpty(text)) 
                 {
-                    return text;
-                }
-                else 
-                {
-                    string[] splitedString = text.Split(' ', '\t');
-                    int size = 0;
-                    int lastCutIndex = 0;
-                    foreach (var word in splitedString) 
+                    if (text.Length <= lettersByLine)
                     {
-                        if (!string.IsNullOrEmpty(word)) 
+                        return text;
+                    }
+                    else
+                    {
+                        string[] splitedString = text.Split(' ', '\t');
+                        int size = 0;
+                        int lastCutIndex = 0;
+                        foreach (var word in splitedString)
                         {
-                            if (size >= lettersByLine) 
+                            if (!string.IsNullOrEmpty(word))
                             {
-                                finalString += Environment.NewLine;
-                                lastCutIndex = finalString.Length;
+                                if (size >= lettersByLine)
+                                {
+                                    finalString += Environment.NewLine;
+                                    lastCutIndex = finalString.Length;
+                                }
+                                size = finalString.Length - lastCutIndex;
+                                finalString += word + " ";
                             }
-                            size = finalString.Length - lastCutIndex;
-                            finalString += word + " ";
                         }
                     }
                 }

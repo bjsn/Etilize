@@ -14,7 +14,6 @@ namespace Etilize.Services
 {
     public class Services
     {
-
         public delegate void UpdateProgressDelegate(int ProgressPercentage);
         public event UpdateProgressDelegate UpdateProgress;
         public delegate void UpdateProgressTextDelegate(string UpdateProgressText);
@@ -86,7 +85,7 @@ namespace Etilize.Services
         }
 
 
-        public async  Task<string> ExecuteCall(string urlGet)
+        public async Task<string> ExecuteCall(string urlGet)
         {
             string requestUriString = string.Format(this.EtilizeEndPoint, this.EtilizeAPPId, this.EtilizeSiteID) + urlGet;
             try
@@ -95,7 +94,7 @@ namespace Etilize.Services
                 request.ContentType = "GET";
                 request.Method = "GET";
                 request.Timeout = 20000;
-                request.Proxy = null;
+                //request.UseDefaultCredentials = true;
                 Task<WebResponse> taskFinal = Task.Factory.FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null);
                 WebResponse response = await taskFinal;
                 return ReadStreamFromResponse(taskFinal.Result);

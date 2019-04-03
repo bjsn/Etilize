@@ -68,6 +68,7 @@
     <Compile Include="SectionPartDL.cs" />
     <Compile Include="SectionTblDL.cs" />
     <Compile Include="SetupDL.cs" />
+    <Compile Include="TempTblDL.cs" />
     <Compile Include="VendorDL.cs" />
   </ItemGroup>
   <ItemGroup>

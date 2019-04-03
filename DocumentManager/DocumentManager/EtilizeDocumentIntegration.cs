@@ -124,14 +124,14 @@ namespace DocumentManager
         /// <param name="savePath"></param>
         /// <param name="height"></param>
         /// <param name="width"></param>
-        public void StarEtilizeDocAssebly(List<ProposalContentByPart> proposalContentByParts, string savePath, int height = 0, int width = 0)
+        public void StarEtilizeDocAssebly(List<ProposalContentByPart> proposalContentByParts, string savePath, int height = 0, int width = 0, string docTemplatePath = "")
         {
             try
             {
                 object range = Missing.Value;
                 WordDocument baseComponent = new WordDocument();
                 Microsoft.Office.Interop.Word.Application winword = baseComponent.NewApp();
-                Document document = baseComponent.New(winword);
+                Document document = baseComponent.New(winword, docTemplatePath);
                 document.Range(0, 0);
                 ImageDecorator decorator = new ImageDecorator(baseComponent);
                 bool useNormalStyleForList = winword.Options.UseNormalStyleForList;
@@ -187,8 +187,8 @@ namespace DocumentManager
                                     if (source.Count<KeyValuePair<string, string>>() > 0)
                                     {
                                         Paragraph paragraph2 = document.Content.Paragraphs.Add();
-                                        paragraph2.Range.set_Style("Normal");
-                                        paragraph2.Range.ListFormat.ApplyBulletDefault();
+                                        this.ApplyBulletFormat(winword, paragraph2);
+
                                         int num3 = 0;
                                         foreach (KeyValuePair<string, string> pair in source)
                                         {
@@ -223,7 +223,7 @@ namespace DocumentManager
                                                     continue;
                                                 }
                                                 Paragraph paragraph5 = document.Content.Paragraphs.Add();
-                                                paragraph5.Range.ListFormat.ApplyBulletDefault();
+                                                this.ApplyBulletFormat(winword, paragraph5);
                                                 paragraph5.Range.InsertBefore(pair2.Value);
                                                 flag2 = true;
                                                 continue;
@@ -248,10 +248,13 @@ namespace DocumentManager
                                         Paragraph paragraph6 = document.Content.Paragraphs.Add();
                                         paragraph6.Range.set_Style("Normal");
                                         paragraph6.Range.Text = "Features of the " + part.ProductName + ":\n";
+                                       
+
                                         Paragraph paragraph7 = document.Content.Paragraphs.Add();
                                         paragraph7.Range.InsertParagraphBefore();
-                                        paragraph7.Range.set_Style("Normal");
-                                        paragraph7.Range.ListFormat.ApplyBulletDefault();
+                                        this.ApplyBulletFormat(winword, paragraph7);
+
+
                                         int num4 = 0;
                                         foreach (KeyValuePair<string, string> pair3 in source)
                                         {
@@ -286,6 +289,15 @@ namespace DocumentManager
         }
 
 
+        private void ApplyBulletFormat(Microsoft.Office.Interop.Word.Application winword, Paragraph paragraph) 
+        {
+            paragraph.Range.ListFormat.ApplyListTemplateWithLevel(
+                                                  ListTemplate: winword.ListGalleries[WdListGalleryType.wdBulletGallery].ListTemplates[1],
+                                                  ContinuePreviousList: true,
+                                                  ApplyTo: Microsoft.Office.Interop.Word.WdListApplyTo.wdListApplyToWholeList,
+                                                  DefaultListBehavior: Microsoft.Office.Interop.Word.WdDefaultListBehavior.wdWord10ListBehavior
+                                                  );
+        }
 
         public static string SaveToTemporaryFile(string html)
         {

@@ -104,12 +104,13 @@ namespace Etilize.Integration
                 DOCSetupFile = DOCSetupFile.Replace("[USERNAME]", UserName);
                 string savePath = this.DIRECTORY_ROOT + DOCSetupFile;
                 this.UpdateProgressSubTitle("Assembling proposal content (please wait)…");
-                this.UpdateProgressText("Processing document, this could take some minutes");
+                this.UpdateProgressText("Processing document");
                 this.UpdateStep(75);
 
                 if (ConfigurationManager.AppSettings["UseWordDoc"].ToString(CultureInfo.InvariantCulture).ToString().ToUpper().Equals("TRUE"))
                 {
-                    this.EtilizeDocumentIntegration.StarEtilizeDocAssebly(proposalContentByParts, savePath, 0, 0);
+                    string docTemplate = this.GetDocumentDefaultTemplate();
+                    this.EtilizeDocumentIntegration.StarEtilizeDocAssebly(proposalContentByParts, savePath, 0, 0, docTemplate);
                 }
 
                 //update modal content
@@ -148,6 +149,76 @@ namespace Etilize.Integration
             }
         }
 
+
+        private string GetDocumentDefaultTemplate() 
+        {
+            string TemplatePath = ConfigurationManager.AppSettings["TempSetupFile"].ToString(CultureInfo.InvariantCulture);
+            string TempFileName = ConfigurationManager.AppSettings["TempFileName"].ToString(CultureInfo.InvariantCulture);
+            string filePath = "";
+            try
+            {
+        
+                string savePath = this.DIRECTORY_ROOT + TemplatePath + TempFileName;
+                string UserName = Environment.UserName;
+                savePath = savePath.Replace("[USERNAME]", UserName);
+
+                bool found = false;
+               
+                string tempFileSave = savePath + ".dotx";
+                if (this.FileExist(tempFileSave)) 
+                {
+                    filePath = tempFileSave;
+                    found = true;
+                }
+
+                if (!found) 
+                {
+                    tempFileSave = savePath + ".dot";
+                    if (this.FileExist(tempFileSave))
+                    {
+                        filePath = tempFileSave;
+                        found = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return filePath;
+        }
+
+        private bool FileExist(string filePath) 
+        {
+            if (File.Exists(filePath))
+            {
+                return true;
+            } 
+            return false;
+        }
+
+        private string TempPartFileFromByteArray(byte[] fileBytes, string tempFileSave)
+        {
+
+            string str;
+            try
+            {
+                using (FileStream output = new FileStream(tempFileSave, FileMode.Create, FileAccess.ReadWrite))
+                {
+                    new BinaryWriter(output).Write(fileBytes);
+                    str = tempFileSave;
+                }
+                if (!DocumentManager.Utilitary.CheckIfDocumentIsValid(str)) 
+                {
+                    throw new Exception("no valid document");
+                }
+            }
+            catch (Exception exception1)
+            {
+                throw new Exception(exception1.Message);
+            }
+            return str;
+        }
 
         public List<ProposalContentByPart> ProcessExcelPartsRequest(List<ExcelPartRequest> excelPartsRequest)
         {
