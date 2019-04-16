@@ -19,7 +19,6 @@ namespace EtilizeUI
         private const int HTCAPTION = 0x2;
 
         private bool m_aeroEnabled;
-
         private const int CS_DROPSHADOW = 0x00020000;
         private const int WM_NCPAINT = 0x0085;
         private const int WM_ACTIVATEAPP = 0x001C;
@@ -122,7 +121,6 @@ namespace EtilizeUI
             integration.UpdateProgressSubTitle += UpdateProgressSubTitle;
             integration.UpdateStep += UpdateStep;
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {

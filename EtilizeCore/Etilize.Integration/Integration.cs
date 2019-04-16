@@ -157,7 +157,6 @@ namespace Etilize.Integration
             string filePath = "";
             try
             {
-        
                 string savePath = this.DIRECTORY_ROOT + TemplatePath + TempFileName;
                 string UserName = Environment.UserName;
                 savePath = savePath.Replace("[USERNAME]", UserName);

@@ -1,6 +1,8 @@
 ﻿using Etilize.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -13,12 +15,19 @@ namespace EtilizeUI
     {
         public static bool CheckForInternetConnection()
         {
+            string ITCUrl = ConfigurationManager.AppSettings["ICTUrl"].ToString(CultureInfo.InvariantCulture);
             bool flag;
             try
             {
                 using (WebClient client = new WebClient())
                 {
-                    using (client.OpenRead("http://clients3.google.com/generate_204"))
+                    WebProxy proxy = (WebProxy)WebProxy.GetDefaultProxy();
+                    if (proxy.Address != null)
+                    {
+                        proxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+                        client.Credentials = CredentialCache.DefaultCredentials;
+                    }
+                    using (client.OpenRead(ITCUrl))
                     {
                         flag = true;
                     }

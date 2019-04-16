@@ -11,7 +11,6 @@ namespace DocumentManager
 {
     public class EtilizeDocumentIntegration
     {
-
         public delegate void UpdateProgressDelegate(int ProgressPercentage);
         public event UpdateProgressDelegate UpdateProgress;
         public delegate void UpdateProgressTextDelegate(string UpdateProgressText);

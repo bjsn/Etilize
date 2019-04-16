@@ -91,10 +91,17 @@ namespace Etilize.Services
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(requestUriString);
+                //define web proxy
+                WebProxy proxy = (WebProxy)WebProxy.GetDefaultProxy();
+                if (proxy.Address != null)
+                {
+                    proxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                }
                 request.ContentType = "GET";
                 request.Method = "GET";
-                request.Timeout = 20000;
-                //request.UseDefaultCredentials = true;
+                request.Timeout = 30000;
+
                 Task<WebResponse> taskFinal = Task.Factory.FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null);
                 WebResponse response = await taskFinal;
                 return ReadStreamFromResponse(taskFinal.Result);
